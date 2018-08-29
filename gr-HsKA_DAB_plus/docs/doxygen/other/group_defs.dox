@@ -1,0 +1,7 @@
+/*!
+ * \defgroup block GNU Radio HSKA_DAB_PLUS C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the HSKA_DAB_PLUS GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
+

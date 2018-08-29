@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<block>
+	<name>Super_Frame_Synchronisation</name>
+	<key>HsKA_DAB_plus_Super_Frame_Synchronisation</key>
+	<category>[HsKA_DAB_plus]</category>
+	<import>import HsKA_DAB_plus</import>
+	<make>HsKA_DAB_plus.Super_Frame_Synchronisation($T_NULL, $LOOK_AHEAD)</make>
+
+<param>
+	<name>NULL Symbol Duration</name>
+	<key>T_NULL</key>
+	<value>2656</value>  
+	<type>int</type>
+</param>
+	
+<param>
+	<name>LOOK_AHEAD</name>
+	<key>LOOK_AHEAD</key>
+	<value>10</value>  
+	<type>int</type>
+</param>
+
+<sink>
+	<name>in</name>
+	<type>complex</type>
+</sink>
+
+<source>
+	<name>out</name>
+	<type>complex</type>
+</source>
+
+<source>
+	<name>sync</name>
+	<type>byte</type>
+</source>
+	
+</block>

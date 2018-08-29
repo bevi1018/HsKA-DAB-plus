@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig_swig_2d0df.cpp
+

@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/HsKA_DAB_plus/Super_Frame_Synchronisation.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
+../include/HsKA_DAB_plus/api.h
+gnuradio/attributes.h
+-
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Header_File.h
+MovingSum.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/MovingSum.h
+RingBuffer.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/RingBuffer.h
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/MovingSum.h
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/RingBuffer.h
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Super_Frame_Synchronisation_impl.cc
+config.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/config.h
+Header_File.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Header_File.h
+gnuradio/io_signature.h
+-
+Super_Frame_Synchronisation_impl.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Super_Frame_Synchronisation_impl.h
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Super_Frame_Synchronisation_impl.h
+HsKA_DAB_plus/Super_Frame_Synchronisation.h
+-
+

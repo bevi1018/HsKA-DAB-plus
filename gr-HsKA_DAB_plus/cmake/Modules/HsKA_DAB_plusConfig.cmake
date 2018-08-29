@@ -1,0 +1,30 @@
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_HSKA_DAB_PLUS HsKA_DAB_plus)
+
+FIND_PATH(
+    HSKA_DAB_PLUS_INCLUDE_DIRS
+    NAMES HsKA_DAB_plus/api.h
+    HINTS $ENV{HSKA_DAB_PLUS_DIR}/include
+        ${PC_HSKA_DAB_PLUS_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/local/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    HSKA_DAB_PLUS_LIBRARIES
+    NAMES gnuradio-HsKA_DAB_plus
+    HINTS $ENV{HSKA_DAB_PLUS_DIR}/lib
+        ${PC_HSKA_DAB_PLUS_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+)
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(HSKA_DAB_PLUS DEFAULT_MSG HSKA_DAB_PLUS_LIBRARIES HSKA_DAB_PLUS_INCLUDE_DIRS)
+MARK_AS_ADVANCED(HSKA_DAB_PLUS_LIBRARIES HSKA_DAB_PLUS_INCLUDE_DIRS)
+
