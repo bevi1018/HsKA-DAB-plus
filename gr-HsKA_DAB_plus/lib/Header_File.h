@@ -51,5 +51,16 @@ typedef unsigned char byte;
 #define PI boost::math::constants::pi<float>()
 #define FLOAT_NEG_MAX -std::numeric_limits<float>::max()
 
+// OFDM_coarse_frequency_correction
+#include <gnuradio/expj.h>
+#include <boost/math/constants/constants.hpp>
+
+#define PI boost::math::constants::pi<float>()
+
+// DQPSK_Demodulation
+#include <gnuradio/expj.h>
+#include <boost/math/constants/constants.hpp>
+
+#define PI boost::math::constants::pi<float>()
 
 #endif

@@ -28,6 +28,8 @@ link_directories(${Boost_LIBRARY_DIRS})
 list(APPEND HsKA_DAB_plus_sources
     Super_Frame_Synchronisation_impl.cc
     OFDM_Symbol_Synchronisation_impl.cc
+    OFDM_coarse_frequency_correction_impl.cc
+    DQPSK_Demodulation_impl.cc
 )
 
 set(HsKA_DAB_plus_sources "${HsKA_DAB_plus_sources}" PARENT_SCOPE)

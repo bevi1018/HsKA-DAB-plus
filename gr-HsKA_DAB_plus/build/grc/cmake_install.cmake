@@ -41,6 +41,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/grc/blocks" TYPE FILE FILES
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_Super_Frame_Synchronisation.xml"
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_OFDM_Symbol_Synchronisation.xml"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_OFDM_coarse_frequency_correction.xml"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_DQPSK_Demodulation.xml"
     )
 endif()
 

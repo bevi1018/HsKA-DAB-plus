@@ -42,6 +42,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/api.h"
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/Super_Frame_Synchronisation.h"
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/OFDM_coarse_frequency_correction.h"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/DQPSK_Demodulation.h"
     )
 endif()
 

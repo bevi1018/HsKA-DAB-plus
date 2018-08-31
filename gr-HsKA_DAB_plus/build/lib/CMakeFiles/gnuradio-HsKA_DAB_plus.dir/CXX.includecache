@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
+../include/HsKA_DAB_plus/DQPSK_Demodulation.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
 ../include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
+../include/HsKA_DAB_plus/OFDM_coarse_frequency_correction.h
 HsKA_DAB_plus/api.h
 -
 gnuradio/block.h
@@ -22,6 +34,20 @@ gnuradio/block.h
 gnuradio/attributes.h
 -
 
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/DQPSK_Demodulation_impl.cc
+config.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/config.h
+Header_File.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Header_File.h
+gnuradio/io_signature.h
+-
+DQPSK_Demodulation_impl.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/DQPSK_Demodulation_impl.h
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/DQPSK_Demodulation_impl.h
+HsKA_DAB_plus/DQPSK_Demodulation.h
+-
+
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Header_File.h
 MovingSum.h
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/MovingSum.h
@@ -30,6 +56,14 @@ RingBuffer.h
 gnuradio/expj.h
 -
 limits
+-
+boost/math/constants/constants.hpp
+-
+gnuradio/expj.h
+-
+boost/math/constants/constants.hpp
+-
+gnuradio/expj.h
 -
 boost/math/constants/constants.hpp
 -
@@ -48,6 +82,20 @@ OFDM_Symbol_Synchronisation_impl.h
 
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_Symbol_Synchronisation_impl.h
 HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
+-
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_coarse_frequency_correction_impl.cc
+config.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/config.h
+Header_File.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/Header_File.h
+gnuradio/io_signature.h
+-
+OFDM_coarse_frequency_correction_impl.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_coarse_frequency_correction_impl.h
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_coarse_frequency_correction_impl.h
+HsKA_DAB_plus/OFDM_coarse_frequency_correction.h
 -
 
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/RingBuffer.h

@@ -19,5 +19,7 @@
 
 install(FILES
     HsKA_DAB_plus_Super_Frame_Synchronisation.xml
-    HsKA_DAB_plus_OFDM_Symbol_Synchronisation.xml DESTINATION share/gnuradio/grc/blocks
+    HsKA_DAB_plus_OFDM_Symbol_Synchronisation.xml
+    HsKA_DAB_plus_OFDM_coarse_frequency_correction.xml
+    HsKA_DAB_plus_DQPSK_Demodulation.xml DESTINATION share/gnuradio/grc/blocks
 )

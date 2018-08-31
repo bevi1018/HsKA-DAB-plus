@@ -197,6 +197,33 @@ gnuradio-HsKA_DAB_plus/fast:
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build
 .PHONY : gnuradio-HsKA_DAB_plus/fast
 
+DQPSK_Demodulation_impl.o: DQPSK_Demodulation_impl.cc.o
+
+.PHONY : DQPSK_Demodulation_impl.o
+
+# target to build an object file
+DQPSK_Demodulation_impl.cc.o:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/DQPSK_Demodulation_impl.cc.o
+.PHONY : DQPSK_Demodulation_impl.cc.o
+
+DQPSK_Demodulation_impl.i: DQPSK_Demodulation_impl.cc.i
+
+.PHONY : DQPSK_Demodulation_impl.i
+
+# target to preprocess a source file
+DQPSK_Demodulation_impl.cc.i:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/DQPSK_Demodulation_impl.cc.i
+.PHONY : DQPSK_Demodulation_impl.cc.i
+
+DQPSK_Demodulation_impl.s: DQPSK_Demodulation_impl.cc.s
+
+.PHONY : DQPSK_Demodulation_impl.s
+
+# target to generate assembly for a file
+DQPSK_Demodulation_impl.cc.s:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/DQPSK_Demodulation_impl.cc.s
+.PHONY : DQPSK_Demodulation_impl.cc.s
+
 OFDM_Symbol_Synchronisation_impl.o: OFDM_Symbol_Synchronisation_impl.cc.o
 
 .PHONY : OFDM_Symbol_Synchronisation_impl.o
@@ -223,6 +250,33 @@ OFDM_Symbol_Synchronisation_impl.s: OFDM_Symbol_Synchronisation_impl.cc.s
 OFDM_Symbol_Synchronisation_impl.cc.s:
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.s
 .PHONY : OFDM_Symbol_Synchronisation_impl.cc.s
+
+OFDM_coarse_frequency_correction_impl.o: OFDM_coarse_frequency_correction_impl.cc.o
+
+.PHONY : OFDM_coarse_frequency_correction_impl.o
+
+# target to build an object file
+OFDM_coarse_frequency_correction_impl.cc.o:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_coarse_frequency_correction_impl.cc.o
+.PHONY : OFDM_coarse_frequency_correction_impl.cc.o
+
+OFDM_coarse_frequency_correction_impl.i: OFDM_coarse_frequency_correction_impl.cc.i
+
+.PHONY : OFDM_coarse_frequency_correction_impl.i
+
+# target to preprocess a source file
+OFDM_coarse_frequency_correction_impl.cc.i:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_coarse_frequency_correction_impl.cc.i
+.PHONY : OFDM_coarse_frequency_correction_impl.cc.i
+
+OFDM_coarse_frequency_correction_impl.s: OFDM_coarse_frequency_correction_impl.cc.s
+
+.PHONY : OFDM_coarse_frequency_correction_impl.s
+
+# target to generate assembly for a file
+OFDM_coarse_frequency_correction_impl.cc.s:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_coarse_frequency_correction_impl.cc.s
+.PHONY : OFDM_coarse_frequency_correction_impl.cc.s
 
 Super_Frame_Synchronisation_impl.o: Super_Frame_Synchronisation_impl.cc.o
 
@@ -320,9 +374,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... DQPSK_Demodulation_impl.o"
+	@echo "... DQPSK_Demodulation_impl.i"
+	@echo "... DQPSK_Demodulation_impl.s"
 	@echo "... OFDM_Symbol_Synchronisation_impl.o"
 	@echo "... OFDM_Symbol_Synchronisation_impl.i"
 	@echo "... OFDM_Symbol_Synchronisation_impl.s"
+	@echo "... OFDM_coarse_frequency_correction_impl.o"
+	@echo "... OFDM_coarse_frequency_correction_impl.i"
+	@echo "... OFDM_coarse_frequency_correction_impl.s"
 	@echo "... Super_Frame_Synchronisation_impl.o"
 	@echo "... Super_Frame_Synchronisation_impl.i"
 	@echo "... Super_Frame_Synchronisation_impl.s"

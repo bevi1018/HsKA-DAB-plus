@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<block>
+<name>DQPSK_Demodulation</name>
+<key>HsKA_DAB_plus_DQPSK_Demodulation</key>
+<category>[HsKA_DAB_plus]</category>
+<import>import HsKA_DAB_plus</import>
+<make>HsKA_DAB_plus.DQPSK_Demodulation($N, $fft_length)</make>
+
+<param>
+	<name>Vector Length</name>
+	<key>N</key>
+	<value>1536</value>
+	<type>int</type>
+</param>
+
+<param>
+	<name>FFT Length</name>
+	<key>fft_length</key>
+	<value>2048</value>
+	<type>int</type>
+</param>
+
+<sink>
+	<name>in</name>
+	<type>complex</type>
+	<vlen>$N</vlen>
+</sink>
+
+<sink>
+	<name>theta</name>
+	<type>short</type>
+</sink>
+
+<sink>
+	<name>sync</name>
+	<type>byte</type>
+</sink>	
+
+<source>
+	<name>out</name>
+	<type>complex</type>
+	<vlen>$N</vlen>
+</source>
+
+<source>
+	<name>sync</name>
+	<type>byte</type>
+</source>
+
+</block>

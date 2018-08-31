@@ -832,5 +832,725 @@ OFDM_Symbol_Synchronisation_sptr_swigregister(OFDM_Symbol_Synchronisation_sptr)
 OFDM_Symbol_Synchronisation_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
 OFDM_Symbol_Synchronisation = OFDM_Symbol_Synchronisation.make;
 
+class OFDM_coarse_frequency_correction(object):
+    """Proxy of C++ gr::HsKA_DAB_plus::OFDM_coarse_frequency_correction class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
+
+    def make(fft_length, num_carriers, cp_length):
+        """make(int fft_length, int num_carriers, int cp_length) -> OFDM_coarse_frequency_correction_sptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_make(fft_length, num_carriers, cp_length)
+
+    make = staticmethod(make)
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_OFDM_coarse_frequency_correction
+    __del__ = lambda self: None
+OFDM_coarse_frequency_correction_swigregister = _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_swigregister
+OFDM_coarse_frequency_correction_swigregister(OFDM_coarse_frequency_correction)
+
+def OFDM_coarse_frequency_correction_make(fft_length, num_carriers, cp_length):
+    """OFDM_coarse_frequency_correction_make(int fft_length, int num_carriers, int cp_length) -> OFDM_coarse_frequency_correction_sptr"""
+    return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_make(fft_length, num_carriers, cp_length)
+
+class OFDM_coarse_frequency_correction_sptr(object):
+    """Proxy of C++ boost::shared_ptr<(gr::HsKA_DAB_plus::OFDM_coarse_frequency_correction)> class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        """
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::OFDM_coarse_frequency_correction)> self) -> OFDM_coarse_frequency_correction_sptr
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::OFDM_coarse_frequency_correction)> self, OFDM_coarse_frequency_correction p) -> OFDM_coarse_frequency_correction_sptr
+        """
+        this = _HsKA_DAB_plus_swig.new_OFDM_coarse_frequency_correction_sptr(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def __deref__(self):
+        """__deref__(OFDM_coarse_frequency_correction_sptr self) -> OFDM_coarse_frequency_correction"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr___deref__(self)
+
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_OFDM_coarse_frequency_correction_sptr
+    __del__ = lambda self: None
+
+    def make(self, fft_length, num_carriers, cp_length):
+        """make(OFDM_coarse_frequency_correction_sptr self, int fft_length, int num_carriers, int cp_length) -> OFDM_coarse_frequency_correction_sptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_make(self, fft_length, num_carriers, cp_length)
+
+
+    def history(self):
+        """history(OFDM_coarse_frequency_correction_sptr self) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_history(self)
+
+
+    def declare_sample_delay(self, *args):
+        """
+        declare_sample_delay(OFDM_coarse_frequency_correction_sptr self, int which, int delay)
+        declare_sample_delay(OFDM_coarse_frequency_correction_sptr self, unsigned int delay)
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_declare_sample_delay(self, *args)
+
+
+    def sample_delay(self, which):
+        """sample_delay(OFDM_coarse_frequency_correction_sptr self, int which) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_sample_delay(self, which)
+
+
+    def output_multiple(self):
+        """output_multiple(OFDM_coarse_frequency_correction_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_output_multiple(self)
+
+
+    def relative_rate(self):
+        """relative_rate(OFDM_coarse_frequency_correction_sptr self) -> double"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_relative_rate(self)
+
+
+    def start(self):
+        """start(OFDM_coarse_frequency_correction_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_start(self)
+
+
+    def stop(self):
+        """stop(OFDM_coarse_frequency_correction_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_stop(self)
+
+
+    def nitems_read(self, which_input):
+        """nitems_read(OFDM_coarse_frequency_correction_sptr self, unsigned int which_input) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_nitems_read(self, which_input)
+
+
+    def nitems_written(self, which_output):
+        """nitems_written(OFDM_coarse_frequency_correction_sptr self, unsigned int which_output) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_nitems_written(self, which_output)
+
+
+    def max_noutput_items(self):
+        """max_noutput_items(OFDM_coarse_frequency_correction_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_max_noutput_items(self)
+
+
+    def set_max_noutput_items(self, m):
+        """set_max_noutput_items(OFDM_coarse_frequency_correction_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_max_noutput_items(self, m)
+
+
+    def unset_max_noutput_items(self):
+        """unset_max_noutput_items(OFDM_coarse_frequency_correction_sptr self)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_unset_max_noutput_items(self)
+
+
+    def is_set_max_noutput_items(self):
+        """is_set_max_noutput_items(OFDM_coarse_frequency_correction_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_is_set_max_noutput_items(self)
+
+
+    def set_min_noutput_items(self, m):
+        """set_min_noutput_items(OFDM_coarse_frequency_correction_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_min_noutput_items(self, m)
+
+
+    def min_noutput_items(self):
+        """min_noutput_items(OFDM_coarse_frequency_correction_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_min_noutput_items(self)
+
+
+    def max_output_buffer(self, i):
+        """max_output_buffer(OFDM_coarse_frequency_correction_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_max_output_buffer(self, i)
+
+
+    def set_max_output_buffer(self, *args):
+        """
+        set_max_output_buffer(OFDM_coarse_frequency_correction_sptr self, long max_output_buffer)
+        set_max_output_buffer(OFDM_coarse_frequency_correction_sptr self, int port, long max_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_max_output_buffer(self, *args)
+
+
+    def min_output_buffer(self, i):
+        """min_output_buffer(OFDM_coarse_frequency_correction_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_min_output_buffer(self, i)
+
+
+    def set_min_output_buffer(self, *args):
+        """
+        set_min_output_buffer(OFDM_coarse_frequency_correction_sptr self, long min_output_buffer)
+        set_min_output_buffer(OFDM_coarse_frequency_correction_sptr self, int port, long min_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_min_output_buffer(self, *args)
+
+
+    def pc_noutput_items(self):
+        """pc_noutput_items(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_noutput_items(self)
+
+
+    def pc_noutput_items_avg(self):
+        """pc_noutput_items_avg(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_noutput_items_avg(self)
+
+
+    def pc_noutput_items_var(self):
+        """pc_noutput_items_var(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_noutput_items_var(self)
+
+
+    def pc_nproduced(self):
+        """pc_nproduced(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_nproduced(self)
+
+
+    def pc_nproduced_avg(self):
+        """pc_nproduced_avg(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_nproduced_avg(self)
+
+
+    def pc_nproduced_var(self):
+        """pc_nproduced_var(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_nproduced_var(self)
+
+
+    def pc_input_buffers_full(self, *args):
+        """
+        pc_input_buffers_full(OFDM_coarse_frequency_correction_sptr self, int which) -> float
+        pc_input_buffers_full(OFDM_coarse_frequency_correction_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_input_buffers_full(self, *args)
+
+
+    def pc_input_buffers_full_avg(self, *args):
+        """
+        pc_input_buffers_full_avg(OFDM_coarse_frequency_correction_sptr self, int which) -> float
+        pc_input_buffers_full_avg(OFDM_coarse_frequency_correction_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_input_buffers_full_avg(self, *args)
+
+
+    def pc_input_buffers_full_var(self, *args):
+        """
+        pc_input_buffers_full_var(OFDM_coarse_frequency_correction_sptr self, int which) -> float
+        pc_input_buffers_full_var(OFDM_coarse_frequency_correction_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_input_buffers_full_var(self, *args)
+
+
+    def pc_output_buffers_full(self, *args):
+        """
+        pc_output_buffers_full(OFDM_coarse_frequency_correction_sptr self, int which) -> float
+        pc_output_buffers_full(OFDM_coarse_frequency_correction_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_output_buffers_full(self, *args)
+
+
+    def pc_output_buffers_full_avg(self, *args):
+        """
+        pc_output_buffers_full_avg(OFDM_coarse_frequency_correction_sptr self, int which) -> float
+        pc_output_buffers_full_avg(OFDM_coarse_frequency_correction_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_output_buffers_full_avg(self, *args)
+
+
+    def pc_output_buffers_full_var(self, *args):
+        """
+        pc_output_buffers_full_var(OFDM_coarse_frequency_correction_sptr self, int which) -> float
+        pc_output_buffers_full_var(OFDM_coarse_frequency_correction_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_output_buffers_full_var(self, *args)
+
+
+    def pc_work_time(self):
+        """pc_work_time(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_work_time(self)
+
+
+    def pc_work_time_avg(self):
+        """pc_work_time_avg(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_work_time_avg(self)
+
+
+    def pc_work_time_var(self):
+        """pc_work_time_var(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_work_time_var(self)
+
+
+    def pc_work_time_total(self):
+        """pc_work_time_total(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_work_time_total(self)
+
+
+    def pc_throughput_avg(self):
+        """pc_throughput_avg(OFDM_coarse_frequency_correction_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_pc_throughput_avg(self)
+
+
+    def set_processor_affinity(self, mask):
+        """set_processor_affinity(OFDM_coarse_frequency_correction_sptr self, std::vector< int,std::allocator< int > > const & mask)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_processor_affinity(self, mask)
+
+
+    def unset_processor_affinity(self):
+        """unset_processor_affinity(OFDM_coarse_frequency_correction_sptr self)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_unset_processor_affinity(self)
+
+
+    def processor_affinity(self):
+        """processor_affinity(OFDM_coarse_frequency_correction_sptr self) -> std::vector< int,std::allocator< int > >"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_processor_affinity(self)
+
+
+    def active_thread_priority(self):
+        """active_thread_priority(OFDM_coarse_frequency_correction_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_active_thread_priority(self)
+
+
+    def thread_priority(self):
+        """thread_priority(OFDM_coarse_frequency_correction_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_thread_priority(self)
+
+
+    def set_thread_priority(self, priority):
+        """set_thread_priority(OFDM_coarse_frequency_correction_sptr self, int priority) -> int"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_thread_priority(self, priority)
+
+
+    def name(self):
+        """name(OFDM_coarse_frequency_correction_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_name(self)
+
+
+    def symbol_name(self):
+        """symbol_name(OFDM_coarse_frequency_correction_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_symbol_name(self)
+
+
+    def input_signature(self):
+        """input_signature(OFDM_coarse_frequency_correction_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_input_signature(self)
+
+
+    def output_signature(self):
+        """output_signature(OFDM_coarse_frequency_correction_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_output_signature(self)
+
+
+    def unique_id(self):
+        """unique_id(OFDM_coarse_frequency_correction_sptr self) -> long"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_unique_id(self)
+
+
+    def to_basic_block(self):
+        """to_basic_block(OFDM_coarse_frequency_correction_sptr self) -> basic_block_sptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_to_basic_block(self)
+
+
+    def check_topology(self, ninputs, noutputs):
+        """check_topology(OFDM_coarse_frequency_correction_sptr self, int ninputs, int noutputs) -> bool"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_check_topology(self, ninputs, noutputs)
+
+
+    def alias(self):
+        """alias(OFDM_coarse_frequency_correction_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_alias(self)
+
+
+    def set_block_alias(self, name):
+        """set_block_alias(OFDM_coarse_frequency_correction_sptr self, std::string name)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_set_block_alias(self, name)
+
+
+    def _post(self, which_port, msg):
+        """_post(OFDM_coarse_frequency_correction_sptr self, swig_int_ptr which_port, swig_int_ptr msg)"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr__post(self, which_port, msg)
+
+
+    def message_ports_in(self):
+        """message_ports_in(OFDM_coarse_frequency_correction_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_message_ports_in(self)
+
+
+    def message_ports_out(self):
+        """message_ports_out(OFDM_coarse_frequency_correction_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_message_ports_out(self)
+
+
+    def message_subscribers(self, which_port):
+        """message_subscribers(OFDM_coarse_frequency_correction_sptr self, swig_int_ptr which_port) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_message_subscribers(self, which_port)
+
+OFDM_coarse_frequency_correction_sptr_swigregister = _HsKA_DAB_plus_swig.OFDM_coarse_frequency_correction_sptr_swigregister
+OFDM_coarse_frequency_correction_sptr_swigregister(OFDM_coarse_frequency_correction_sptr)
+
+
+OFDM_coarse_frequency_correction_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
+OFDM_coarse_frequency_correction = OFDM_coarse_frequency_correction.make;
+
+class DQPSK_Demodulation(object):
+    """Proxy of C++ gr::HsKA_DAB_plus::DQPSK_Demodulation class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
+
+    def make(N, fft_length):
+        """make(int N, int fft_length) -> DQPSK_Demodulation_sptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_make(N, fft_length)
+
+    make = staticmethod(make)
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_DQPSK_Demodulation
+    __del__ = lambda self: None
+DQPSK_Demodulation_swigregister = _HsKA_DAB_plus_swig.DQPSK_Demodulation_swigregister
+DQPSK_Demodulation_swigregister(DQPSK_Demodulation)
+
+def DQPSK_Demodulation_make(N, fft_length):
+    """DQPSK_Demodulation_make(int N, int fft_length) -> DQPSK_Demodulation_sptr"""
+    return _HsKA_DAB_plus_swig.DQPSK_Demodulation_make(N, fft_length)
+
+class DQPSK_Demodulation_sptr(object):
+    """Proxy of C++ boost::shared_ptr<(gr::HsKA_DAB_plus::DQPSK_Demodulation)> class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        """
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::DQPSK_Demodulation)> self) -> DQPSK_Demodulation_sptr
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::DQPSK_Demodulation)> self, DQPSK_Demodulation p) -> DQPSK_Demodulation_sptr
+        """
+        this = _HsKA_DAB_plus_swig.new_DQPSK_Demodulation_sptr(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def __deref__(self):
+        """__deref__(DQPSK_Demodulation_sptr self) -> DQPSK_Demodulation"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr___deref__(self)
+
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_DQPSK_Demodulation_sptr
+    __del__ = lambda self: None
+
+    def make(self, N, fft_length):
+        """make(DQPSK_Demodulation_sptr self, int N, int fft_length) -> DQPSK_Demodulation_sptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_make(self, N, fft_length)
+
+
+    def history(self):
+        """history(DQPSK_Demodulation_sptr self) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_history(self)
+
+
+    def declare_sample_delay(self, *args):
+        """
+        declare_sample_delay(DQPSK_Demodulation_sptr self, int which, int delay)
+        declare_sample_delay(DQPSK_Demodulation_sptr self, unsigned int delay)
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_declare_sample_delay(self, *args)
+
+
+    def sample_delay(self, which):
+        """sample_delay(DQPSK_Demodulation_sptr self, int which) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_sample_delay(self, which)
+
+
+    def output_multiple(self):
+        """output_multiple(DQPSK_Demodulation_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_output_multiple(self)
+
+
+    def relative_rate(self):
+        """relative_rate(DQPSK_Demodulation_sptr self) -> double"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_relative_rate(self)
+
+
+    def start(self):
+        """start(DQPSK_Demodulation_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_start(self)
+
+
+    def stop(self):
+        """stop(DQPSK_Demodulation_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_stop(self)
+
+
+    def nitems_read(self, which_input):
+        """nitems_read(DQPSK_Demodulation_sptr self, unsigned int which_input) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_nitems_read(self, which_input)
+
+
+    def nitems_written(self, which_output):
+        """nitems_written(DQPSK_Demodulation_sptr self, unsigned int which_output) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_nitems_written(self, which_output)
+
+
+    def max_noutput_items(self):
+        """max_noutput_items(DQPSK_Demodulation_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_max_noutput_items(self)
+
+
+    def set_max_noutput_items(self, m):
+        """set_max_noutput_items(DQPSK_Demodulation_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_max_noutput_items(self, m)
+
+
+    def unset_max_noutput_items(self):
+        """unset_max_noutput_items(DQPSK_Demodulation_sptr self)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_unset_max_noutput_items(self)
+
+
+    def is_set_max_noutput_items(self):
+        """is_set_max_noutput_items(DQPSK_Demodulation_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_is_set_max_noutput_items(self)
+
+
+    def set_min_noutput_items(self, m):
+        """set_min_noutput_items(DQPSK_Demodulation_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_min_noutput_items(self, m)
+
+
+    def min_noutput_items(self):
+        """min_noutput_items(DQPSK_Demodulation_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_min_noutput_items(self)
+
+
+    def max_output_buffer(self, i):
+        """max_output_buffer(DQPSK_Demodulation_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_max_output_buffer(self, i)
+
+
+    def set_max_output_buffer(self, *args):
+        """
+        set_max_output_buffer(DQPSK_Demodulation_sptr self, long max_output_buffer)
+        set_max_output_buffer(DQPSK_Demodulation_sptr self, int port, long max_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_max_output_buffer(self, *args)
+
+
+    def min_output_buffer(self, i):
+        """min_output_buffer(DQPSK_Demodulation_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_min_output_buffer(self, i)
+
+
+    def set_min_output_buffer(self, *args):
+        """
+        set_min_output_buffer(DQPSK_Demodulation_sptr self, long min_output_buffer)
+        set_min_output_buffer(DQPSK_Demodulation_sptr self, int port, long min_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_min_output_buffer(self, *args)
+
+
+    def pc_noutput_items(self):
+        """pc_noutput_items(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_noutput_items(self)
+
+
+    def pc_noutput_items_avg(self):
+        """pc_noutput_items_avg(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_noutput_items_avg(self)
+
+
+    def pc_noutput_items_var(self):
+        """pc_noutput_items_var(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_noutput_items_var(self)
+
+
+    def pc_nproduced(self):
+        """pc_nproduced(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_nproduced(self)
+
+
+    def pc_nproduced_avg(self):
+        """pc_nproduced_avg(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_nproduced_avg(self)
+
+
+    def pc_nproduced_var(self):
+        """pc_nproduced_var(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_nproduced_var(self)
+
+
+    def pc_input_buffers_full(self, *args):
+        """
+        pc_input_buffers_full(DQPSK_Demodulation_sptr self, int which) -> float
+        pc_input_buffers_full(DQPSK_Demodulation_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_input_buffers_full(self, *args)
+
+
+    def pc_input_buffers_full_avg(self, *args):
+        """
+        pc_input_buffers_full_avg(DQPSK_Demodulation_sptr self, int which) -> float
+        pc_input_buffers_full_avg(DQPSK_Demodulation_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_input_buffers_full_avg(self, *args)
+
+
+    def pc_input_buffers_full_var(self, *args):
+        """
+        pc_input_buffers_full_var(DQPSK_Demodulation_sptr self, int which) -> float
+        pc_input_buffers_full_var(DQPSK_Demodulation_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_input_buffers_full_var(self, *args)
+
+
+    def pc_output_buffers_full(self, *args):
+        """
+        pc_output_buffers_full(DQPSK_Demodulation_sptr self, int which) -> float
+        pc_output_buffers_full(DQPSK_Demodulation_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_output_buffers_full(self, *args)
+
+
+    def pc_output_buffers_full_avg(self, *args):
+        """
+        pc_output_buffers_full_avg(DQPSK_Demodulation_sptr self, int which) -> float
+        pc_output_buffers_full_avg(DQPSK_Demodulation_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_output_buffers_full_avg(self, *args)
+
+
+    def pc_output_buffers_full_var(self, *args):
+        """
+        pc_output_buffers_full_var(DQPSK_Demodulation_sptr self, int which) -> float
+        pc_output_buffers_full_var(DQPSK_Demodulation_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_output_buffers_full_var(self, *args)
+
+
+    def pc_work_time(self):
+        """pc_work_time(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_work_time(self)
+
+
+    def pc_work_time_avg(self):
+        """pc_work_time_avg(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_work_time_avg(self)
+
+
+    def pc_work_time_var(self):
+        """pc_work_time_var(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_work_time_var(self)
+
+
+    def pc_work_time_total(self):
+        """pc_work_time_total(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_work_time_total(self)
+
+
+    def pc_throughput_avg(self):
+        """pc_throughput_avg(DQPSK_Demodulation_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_pc_throughput_avg(self)
+
+
+    def set_processor_affinity(self, mask):
+        """set_processor_affinity(DQPSK_Demodulation_sptr self, std::vector< int,std::allocator< int > > const & mask)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_processor_affinity(self, mask)
+
+
+    def unset_processor_affinity(self):
+        """unset_processor_affinity(DQPSK_Demodulation_sptr self)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_unset_processor_affinity(self)
+
+
+    def processor_affinity(self):
+        """processor_affinity(DQPSK_Demodulation_sptr self) -> std::vector< int,std::allocator< int > >"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_processor_affinity(self)
+
+
+    def active_thread_priority(self):
+        """active_thread_priority(DQPSK_Demodulation_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_active_thread_priority(self)
+
+
+    def thread_priority(self):
+        """thread_priority(DQPSK_Demodulation_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_thread_priority(self)
+
+
+    def set_thread_priority(self, priority):
+        """set_thread_priority(DQPSK_Demodulation_sptr self, int priority) -> int"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_thread_priority(self, priority)
+
+
+    def name(self):
+        """name(DQPSK_Demodulation_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_name(self)
+
+
+    def symbol_name(self):
+        """symbol_name(DQPSK_Demodulation_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_symbol_name(self)
+
+
+    def input_signature(self):
+        """input_signature(DQPSK_Demodulation_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_input_signature(self)
+
+
+    def output_signature(self):
+        """output_signature(DQPSK_Demodulation_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_output_signature(self)
+
+
+    def unique_id(self):
+        """unique_id(DQPSK_Demodulation_sptr self) -> long"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_unique_id(self)
+
+
+    def to_basic_block(self):
+        """to_basic_block(DQPSK_Demodulation_sptr self) -> basic_block_sptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_to_basic_block(self)
+
+
+    def check_topology(self, ninputs, noutputs):
+        """check_topology(DQPSK_Demodulation_sptr self, int ninputs, int noutputs) -> bool"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_check_topology(self, ninputs, noutputs)
+
+
+    def alias(self):
+        """alias(DQPSK_Demodulation_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_alias(self)
+
+
+    def set_block_alias(self, name):
+        """set_block_alias(DQPSK_Demodulation_sptr self, std::string name)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_set_block_alias(self, name)
+
+
+    def _post(self, which_port, msg):
+        """_post(DQPSK_Demodulation_sptr self, swig_int_ptr which_port, swig_int_ptr msg)"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr__post(self, which_port, msg)
+
+
+    def message_ports_in(self):
+        """message_ports_in(DQPSK_Demodulation_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_message_ports_in(self)
+
+
+    def message_ports_out(self):
+        """message_ports_out(DQPSK_Demodulation_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_message_ports_out(self)
+
+
+    def message_subscribers(self, which_port):
+        """message_subscribers(DQPSK_Demodulation_sptr self, swig_int_ptr which_port) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_message_subscribers(self, which_port)
+
+DQPSK_Demodulation_sptr_swigregister = _HsKA_DAB_plus_swig.DQPSK_Demodulation_sptr_swigregister
+DQPSK_Demodulation_sptr_swigregister(DQPSK_Demodulation_sptr)
+
+
+DQPSK_Demodulation_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
+DQPSK_Demodulation = DQPSK_Demodulation.make;
+
 
 
