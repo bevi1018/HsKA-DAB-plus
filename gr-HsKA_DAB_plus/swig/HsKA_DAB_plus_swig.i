@@ -9,8 +9,11 @@
 
 %{
 #include "HsKA_DAB_plus/Super_Frame_Synchronisation.h"
+#include "HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h"
 %}
 
 
 %include "HsKA_DAB_plus/Super_Frame_Synchronisation.h"
 GR_SWIG_BLOCK_MAGIC2(HsKA_DAB_plus, Super_Frame_Synchronisation);
+%include "HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h"
+GR_SWIG_BLOCK_MAGIC2(HsKA_DAB_plus, OFDM_Symbol_Synchronisation);

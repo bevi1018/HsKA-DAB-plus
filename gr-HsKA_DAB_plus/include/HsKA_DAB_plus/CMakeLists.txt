@@ -22,5 +22,6 @@
 ########################################################################
 install(FILES
     api.h
-    Super_Frame_Synchronisation.h DESTINATION include/HsKA_DAB_plus
+    Super_Frame_Synchronisation.h
+    OFDM_Symbol_Synchronisation.h DESTINATION include/HsKA_DAB_plus
 )

@@ -43,5 +43,13 @@ typedef unsigned char byte;
 #include "MovingSum.h"
 #include "RingBuffer.h"
 
+// OFDM Symbol Synchronisation
+#include <gnuradio/expj.h>
+#include <limits>
+#include <boost/math/constants/constants.hpp>
+
+#define PI boost::math::constants::pi<float>()
+#define FLOAT_NEG_MAX -std::numeric_limits<float>::max()
+
 
 #endif

@@ -1,6 +1,7 @@
 /usr/local/lib/cmake/HsKA_DAB_plus/HsKA_DAB_plusConfig.cmake
 /usr/local/include/HsKA_DAB_plus/api.h
 /usr/local/include/HsKA_DAB_plus/Super_Frame_Synchronisation.h
+/usr/local/include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
 /usr/local/lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0
 /usr/local/lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so
 /usr/local/lib/libgnuradio-HsKA_DAB_plus.so
@@ -15,3 +16,4 @@
 /usr/local/lib/python2.7/dist-packages/HsKA_DAB_plus/__init__.pyc
 /usr/local/lib/python2.7/dist-packages/HsKA_DAB_plus/__init__.pyo
 /usr/local/share/gnuradio/grc/blocks/HsKA_DAB_plus_Super_Frame_Synchronisation.xml
+/usr/local/share/gnuradio/grc/blocks/HsKA_DAB_plus_OFDM_Symbol_Synchronisation.xml

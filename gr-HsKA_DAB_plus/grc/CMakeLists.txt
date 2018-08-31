@@ -18,5 +18,6 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    HsKA_DAB_plus_Super_Frame_Synchronisation.xml DESTINATION share/gnuradio/grc/blocks
+    HsKA_DAB_plus_Super_Frame_Synchronisation.xml
+    HsKA_DAB_plus_OFDM_Symbol_Synchronisation.xml DESTINATION share/gnuradio/grc/blocks
 )

@@ -197,6 +197,33 @@ gnuradio-HsKA_DAB_plus/fast:
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build
 .PHONY : gnuradio-HsKA_DAB_plus/fast
 
+OFDM_Symbol_Synchronisation_impl.o: OFDM_Symbol_Synchronisation_impl.cc.o
+
+.PHONY : OFDM_Symbol_Synchronisation_impl.o
+
+# target to build an object file
+OFDM_Symbol_Synchronisation_impl.cc.o:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o
+.PHONY : OFDM_Symbol_Synchronisation_impl.cc.o
+
+OFDM_Symbol_Synchronisation_impl.i: OFDM_Symbol_Synchronisation_impl.cc.i
+
+.PHONY : OFDM_Symbol_Synchronisation_impl.i
+
+# target to preprocess a source file
+OFDM_Symbol_Synchronisation_impl.cc.i:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.i
+.PHONY : OFDM_Symbol_Synchronisation_impl.cc.i
+
+OFDM_Symbol_Synchronisation_impl.s: OFDM_Symbol_Synchronisation_impl.cc.s
+
+.PHONY : OFDM_Symbol_Synchronisation_impl.s
+
+# target to generate assembly for a file
+OFDM_Symbol_Synchronisation_impl.cc.s:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.s
+.PHONY : OFDM_Symbol_Synchronisation_impl.cc.s
+
 Super_Frame_Synchronisation_impl.o: Super_Frame_Synchronisation_impl.cc.o
 
 .PHONY : Super_Frame_Synchronisation_impl.o
@@ -293,6 +320,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... OFDM_Symbol_Synchronisation_impl.o"
+	@echo "... OFDM_Symbol_Synchronisation_impl.i"
+	@echo "... OFDM_Symbol_Synchronisation_impl.s"
 	@echo "... Super_Frame_Synchronisation_impl.o"
 	@echo "... Super_Frame_Synchronisation_impl.i"
 	@echo "... Super_Frame_Synchronisation_impl.s"

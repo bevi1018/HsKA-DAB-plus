@@ -41,6 +41,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/HsKA_DAB_plus" TYPE FILE FILES
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/api.h"
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/Super_Frame_Synchronisation.h"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h"
     )
 endif()
 

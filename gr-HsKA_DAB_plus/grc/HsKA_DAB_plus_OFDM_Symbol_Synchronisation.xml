@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<block>
+	<name>OFDM_Symbol_Synchronisation</name>
+	<key>HsKA_DAB_plus_OFDM_Symbol_Synchronisation</key>
+	<category>[HsKA_DAB_plus]</category>
+	<import>import HsKA_DAB_plus</import>
+	<make>HsKA_DAB_plus.OFDM_Symbol_Synchronisation($N, $L, $SNR, $Averaging)</make>
+
+<param>
+	<name>FFT Length</name>
+	<key>N</key>
+	<value>2048</value>
+	<type>int</type>
+</param>
+	
+<param>
+	<name>CP Length</name>
+	<key>L</key>
+	<value>504</value>
+	<type>int</type>
+</param>
+
+<param>
+	<name>SNR</name>
+	<key>SNR</key>
+	<value>15</value>  
+	<type>float</type>
+</param>
+
+<param>
+	<name>Averaging [Symbols]</name>
+	<key>Averaging</key>
+	<value>8</value>  
+	<type>int</type>
+</param>	
+
+<sink>
+	<name>in</name>
+	<type>complex</type>
+</sink>
+
+<sink>
+	<name>sync</name>
+	<type>byte</type>
+</sink>	
+
+<source>
+	<name>out</name>
+	<type>complex</type>
+	<vlen>$N</vlen>
+</source>
+
+<source>
+	<name>theta</name>
+	<type>short</type>
+</source>
+
+<source>
+	<name>sync</name>
+	<type>byte</type>
+</source>
+
+</block>

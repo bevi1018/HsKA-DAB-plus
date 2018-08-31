@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
 ../include/HsKA_DAB_plus/Super_Frame_Synchronisation.h
 HsKA_DAB_plus/api.h
 -
@@ -65,6 +71,8 @@ limits.h
 -
 HsKA_DAB_plus/Super_Frame_Synchronisation.h
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/Super_Frame_Synchronisation.h
+HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
 float.h
 -
 math.h

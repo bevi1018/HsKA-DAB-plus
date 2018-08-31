@@ -9,14 +9,14 @@
 <param>
 	<name>NULL Symbol Duration</name>
 	<key>T_NULL</key>
-	<value>2656</value>  
+	<value>2656</value>
 	<type>int</type>
 </param>
 	
 <param>
 	<name>LOOK_AHEAD</name>
 	<key>LOOK_AHEAD</key>
-	<value>10</value>  
+	<value>10</value>
 	<type>int</type>
 </param>
 
@@ -34,5 +34,5 @@
 	<name>sync</name>
 	<type>byte</type>
 </source>
-	
+
 </block>

@@ -81,20 +81,46 @@ lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o.
 lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o.provides.build: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o
 
 
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/flags.make
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o: ../lib/OFDM_Symbol_Synchronisation_impl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o"
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o -c /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_Symbol_Synchronisation_impl.cc
+
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.i"
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_Symbol_Synchronisation_impl.cc > CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.i
+
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.s"
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/lib/OFDM_Symbol_Synchronisation_impl.cc -o CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.s
+
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.requires:
+
+.PHONY : lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.requires
+
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.provides: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.requires
+	$(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.provides.build
+.PHONY : lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.provides
+
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.provides.build: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o
+
+
 # Object files for target gnuradio-HsKA_DAB_plus
 gnuradio__HsKA_DAB_plus_OBJECTS = \
-"CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o"
+"CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o" \
+"CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o"
 
 # External object files for target gnuradio-HsKA_DAB_plus
 gnuradio__HsKA_DAB_plus_EXTERNAL_OBJECTS =
 
 lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o
+lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o
 lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make
 lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: /usr/lib/x86_64-linux-gnu/libboost_system.so
 lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: /usr/lib/x86_64-linux-gnu/libgnuradio-runtime.so
 lib/libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libgnuradio-HsKA_DAB_plus-1.0.0git.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libgnuradio-HsKA_DAB_plus-1.0.0git.so"
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gnuradio-HsKA_DAB_plus.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib && $(CMAKE_COMMAND) -E cmake_symlink_library libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0 libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0 libgnuradio-HsKA_DAB_plus-1.0.0git.so
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib && /usr/bin/cmake -E create_symlink libgnuradio-HsKA_DAB_plus-1.0.0git.so.0.0.0 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib/libgnuradio-HsKA_DAB_plus.so
@@ -110,6 +136,7 @@ lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build: lib/libgnuradio-HsKA_DAB_plus-1
 .PHONY : lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build
 
 lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/requires: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Super_Frame_Synchronisation_impl.cc.o.requires
+lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/requires: lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/OFDM_Symbol_Synchronisation_impl.cc.o.requires
 
 .PHONY : lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/requires
 
