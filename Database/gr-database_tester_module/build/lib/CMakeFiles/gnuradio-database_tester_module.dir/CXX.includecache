@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/database_tester_module/api.h
+gnuradio/attributes.h
+-
+
+../include/database_tester_module/database_tester.h
+database_tester_module/api.h
+-
+
+../include/database_tester_module/shared_database.h
+stdint.h
+-
+boost/unordered_map.hpp
+-
+boost/thread/mutex.hpp
+-
+database_module/api.h
+-
+
+/home/gnuradiouser/gnuradio/HsKA-DAB+/Database/gr-database_tester_module/lib/database_tester.cc
+config.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/Database/gr-database_tester_module/lib/config.h
+gnuradio/io_signature.h
+-
+database_tester_module/database_tester.h
+-
+database_tester_module/shared_database.h
+-
+stdio.h
+-
+

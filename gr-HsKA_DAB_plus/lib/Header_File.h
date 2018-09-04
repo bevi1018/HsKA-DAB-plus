@@ -33,8 +33,8 @@ Informationen
 - Quellen:
 */
 
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef _HEADER_FILE_H
+#define _HEADER_FILE_H
 
 using namespace std;
 typedef unsigned char byte;
@@ -62,5 +62,12 @@ typedef unsigned char byte;
 #include <boost/math/constants/constants.hpp>
 
 #define PI boost::math::constants::pi<float>()
+
+// Departitioning
+#include <boost/assign/list_of.hpp>
+#include "FIB.h"
+#include "shared_database.h"
+
+#define CU_SIZE 64
 
 #endif

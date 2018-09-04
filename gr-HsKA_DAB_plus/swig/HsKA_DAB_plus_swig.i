@@ -15,6 +15,7 @@
 #include "HsKA_DAB_plus/Remove_First_OFDM_Symbol.h"
 #include "HsKA_DAB_plus/Frequency_Deinterleaver.h"
 #include "HsKA_DAB_plus/Soft_Demapper.h"
+#include "HsKA_DAB_plus/Departitioning.h"
 %}
 
 
@@ -32,3 +33,5 @@ GR_SWIG_BLOCK_MAGIC2(HsKA_DAB_plus, Remove_First_OFDM_Symbol);
 GR_SWIG_BLOCK_MAGIC2(HsKA_DAB_plus, Frequency_Deinterleaver);
 %include "HsKA_DAB_plus/Soft_Demapper.h"
 GR_SWIG_BLOCK_MAGIC2(HsKA_DAB_plus, Soft_Demapper);
+%include "HsKA_DAB_plus/Departitioning.h"
+GR_SWIG_BLOCK_MAGIC2(HsKA_DAB_plus, Departitioning);

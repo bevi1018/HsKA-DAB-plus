@@ -224,6 +224,33 @@ DQPSK_Demodulation_impl.cc.s:
 	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/DQPSK_Demodulation_impl.cc.s
 .PHONY : DQPSK_Demodulation_impl.cc.s
 
+Departitioning_impl.o: Departitioning_impl.cc.o
+
+.PHONY : Departitioning_impl.o
+
+# target to build an object file
+Departitioning_impl.cc.o:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Departitioning_impl.cc.o
+.PHONY : Departitioning_impl.cc.o
+
+Departitioning_impl.i: Departitioning_impl.cc.i
+
+.PHONY : Departitioning_impl.i
+
+# target to preprocess a source file
+Departitioning_impl.cc.i:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Departitioning_impl.cc.i
+.PHONY : Departitioning_impl.cc.i
+
+Departitioning_impl.s: Departitioning_impl.cc.s
+
+.PHONY : Departitioning_impl.s
+
+# target to generate assembly for a file
+Departitioning_impl.cc.s:
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(MAKE) -f lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/build.make lib/CMakeFiles/gnuradio-HsKA_DAB_plus.dir/Departitioning_impl.cc.s
+.PHONY : Departitioning_impl.cc.s
+
 Frequency_Deinterleaver_impl.o: Frequency_Deinterleaver_impl.cc.o
 
 .PHONY : Frequency_Deinterleaver_impl.o
@@ -458,6 +485,9 @@ help:
 	@echo "... DQPSK_Demodulation_impl.o"
 	@echo "... DQPSK_Demodulation_impl.i"
 	@echo "... DQPSK_Demodulation_impl.s"
+	@echo "... Departitioning_impl.o"
+	@echo "... Departitioning_impl.i"
+	@echo "... Departitioning_impl.s"
 	@echo "... Frequency_Deinterleaver_impl.o"
 	@echo "... Frequency_Deinterleaver_impl.i"
 	@echo "... Frequency_Deinterleaver_impl.s"

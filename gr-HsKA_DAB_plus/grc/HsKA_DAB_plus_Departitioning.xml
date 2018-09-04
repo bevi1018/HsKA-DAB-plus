@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<block>
+	<name>Departitioning</name>
+	<key>HsKA_DAB_plus_Departitioning</key>
+	<category>[HsKA_DAB_plus]</category>
+	<import>import HsKA_DAB_plus</import>
+	<make>HsKA_DAB_plus.Departitioning(database_module.get_database($database_id).this, $vector_length)</make>
+
+<param>
+	<name>Database ID</name>
+	<key>database_id</key>
+	<value>fic_database</value>
+	<type>string</type>
+</param>
+
+<param>
+	<name>Vector Length</name>
+	<key>vector_length</key>
+	<value>1536</value>
+	<type>int</type>
+</param>
+
+<sink>
+	<name>in</name>
+	<type>float</type>
+	<vlen>$vector_length*2</vlen>
+</sink>
+
+<sink>
+	<name>sync</name>
+	<type>byte</type>
+</sink>
+
+<source>
+	<name>fic_block_out</name>
+	<type>float</type>
+	<vlen>$vector_length*2*3/4</vlen>
+</source>
+
+<source>
+	<name>fic_block_sync</name>
+	<type>byte</type>
+</source>
+
+<source>
+	<name>subch_out</name>
+	<type>float</type>
+</source>
+
+<source>
+	<name>subch_sync</name>
+	<type>byte</type>
+</source>
+
+</block>

@@ -24,5 +24,6 @@ install(FILES
     HsKA_DAB_plus_DQPSK_Demodulation.xml
     HsKA_DAB_plus_Remove_First_OFDM_Symbol.xml
     HsKA_DAB_plus_Frequency_Deinterleaver.xml
-    HsKA_DAB_plus_Soft_Demapper.xml DESTINATION share/gnuradio/grc/blocks
+    HsKA_DAB_plus_Soft_Demapper.xml
+    HsKA_DAB_plus_Departitioning.xml DESTINATION share/gnuradio/grc/blocks
 )

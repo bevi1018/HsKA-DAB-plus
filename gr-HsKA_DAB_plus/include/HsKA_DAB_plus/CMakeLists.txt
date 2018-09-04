@@ -28,5 +28,6 @@ install(FILES
     DQPSK_Demodulation.h
     Remove_First_OFDM_Symbol.h
     Frequency_Deinterleaver.h
-    Soft_Demapper.h DESTINATION include/HsKA_DAB_plus
+    Soft_Demapper.h
+    Departitioning.h DESTINATION include/HsKA_DAB_plus
 )

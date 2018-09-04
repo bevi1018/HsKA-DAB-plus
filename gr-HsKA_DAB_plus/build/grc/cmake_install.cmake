@@ -46,6 +46,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_Remove_First_OFDM_Symbol.xml"
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_Frequency_Deinterleaver.xml"
     "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_Soft_Demapper.xml"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/grc/HsKA_DAB_plus_Departitioning.xml"
     )
 endif()
 
