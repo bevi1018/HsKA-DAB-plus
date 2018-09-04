@@ -3,8 +3,11 @@
 
 swig/CMakeFiles/_HsKA_DAB_plus_swig.dir/HsKA_DAB_plus_swigPYTHON_wrap.cxx.o
  ../include/HsKA_DAB_plus/DQPSK_Demodulation.h
+ ../include/HsKA_DAB_plus/Frequency_Deinterleaver.h
  ../include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
  ../include/HsKA_DAB_plus/OFDM_coarse_frequency_correction.h
+ ../include/HsKA_DAB_plus/Remove_First_OFDM_Symbol.h
+ ../include/HsKA_DAB_plus/Soft_Demapper.h
  ../include/HsKA_DAB_plus/Super_Frame_Synchronisation.h
  ../include/HsKA_DAB_plus/api.h
  /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swigPYTHON_wrap.cxx

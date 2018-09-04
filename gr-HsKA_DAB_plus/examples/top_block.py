@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Fri Aug 31 19:41:06 2018
+# Generated: Sun Sep  2 10:04:57 2018
 ##################################################
 
 from distutils.version import StrictVersion
@@ -78,7 +78,7 @@ class top_block(gr.top_block, Qt.QWidget):
         	"", #name
         	1 #number of inputs
         )
-        self.qtgui_const_sink_x_0.set_update_time(0.40)
+        self.qtgui_const_sink_x_0.set_update_time(0.10)
         self.qtgui_const_sink_x_0.set_y_axis(-2, 2)
         self.qtgui_const_sink_x_0.set_x_axis(-2, 2)
         self.qtgui_const_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, "")
@@ -121,20 +121,25 @@ class top_block(gr.top_block, Qt.QWidget):
         self.blocks_null_sink_0_0_0 = blocks.null_sink(gr.sizeof_char*1)
         self.blocks_float_to_complex_0 = blocks.float_to_complex(1)
         self.HsKA_DAB_plus_Super_Frame_Synchronisation_0 = HsKA_DAB_plus.Super_Frame_Synchronisation(2656, 10)
+        self.HsKA_DAB_plus_Remove_First_OFDM_Symbol_0 = HsKA_DAB_plus.Remove_First_OFDM_Symbol(1536)
         self.HsKA_DAB_plus_OFDM_coarse_frequency_correction_0 = HsKA_DAB_plus.OFDM_coarse_frequency_correction(2048, 1536, 504)
         self.HsKA_DAB_plus_OFDM_Symbol_Synchronisation_0 = HsKA_DAB_plus.OFDM_Symbol_Synchronisation(2048, 504, 15, 8)
+        self.HsKA_DAB_plus_Frequency_Deinterleaver_0 = HsKA_DAB_plus.Frequency_Deinterleaver(1536, 2048)
         self.HsKA_DAB_plus_DQPSK_Demodulation_0 = HsKA_DAB_plus.DQPSK_Demodulation(1536, 2048)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.HsKA_DAB_plus_DQPSK_Demodulation_0, 1), (self.blocks_null_sink_0_0_0, 0))
-        self.connect((self.HsKA_DAB_plus_DQPSK_Demodulation_0, 0), (self.blocks_vector_to_stream_0, 0))
+        self.connect((self.HsKA_DAB_plus_DQPSK_Demodulation_0, 0), (self.HsKA_DAB_plus_Remove_First_OFDM_Symbol_0, 0))
+        self.connect((self.HsKA_DAB_plus_DQPSK_Demodulation_0, 1), (self.HsKA_DAB_plus_Remove_First_OFDM_Symbol_0, 1))
+        self.connect((self.HsKA_DAB_plus_Frequency_Deinterleaver_0, 0), (self.blocks_vector_to_stream_0, 0))
         self.connect((self.HsKA_DAB_plus_OFDM_Symbol_Synchronisation_0, 1), (self.HsKA_DAB_plus_DQPSK_Demodulation_0, 1))
         self.connect((self.HsKA_DAB_plus_OFDM_Symbol_Synchronisation_0, 2), (self.HsKA_DAB_plus_OFDM_coarse_frequency_correction_0, 1))
         self.connect((self.HsKA_DAB_plus_OFDM_Symbol_Synchronisation_0, 0), (self.fft_vxx_0, 0))
-        self.connect((self.HsKA_DAB_plus_OFDM_coarse_frequency_correction_0, 1), (self.HsKA_DAB_plus_DQPSK_Demodulation_0, 2))
         self.connect((self.HsKA_DAB_plus_OFDM_coarse_frequency_correction_0, 0), (self.HsKA_DAB_plus_DQPSK_Demodulation_0, 0))
+        self.connect((self.HsKA_DAB_plus_OFDM_coarse_frequency_correction_0, 1), (self.HsKA_DAB_plus_DQPSK_Demodulation_0, 2))
+        self.connect((self.HsKA_DAB_plus_Remove_First_OFDM_Symbol_0, 0), (self.HsKA_DAB_plus_Frequency_Deinterleaver_0, 0))
+        self.connect((self.HsKA_DAB_plus_Remove_First_OFDM_Symbol_0, 1), (self.blocks_null_sink_0_0_0, 0))
         self.connect((self.HsKA_DAB_plus_Super_Frame_Synchronisation_0, 0), (self.HsKA_DAB_plus_OFDM_Symbol_Synchronisation_0, 0))
         self.connect((self.HsKA_DAB_plus_Super_Frame_Synchronisation_0, 1), (self.HsKA_DAB_plus_OFDM_Symbol_Synchronisation_0, 1))
         self.connect((self.blocks_float_to_complex_0, 0), (self.blocks_throttle_0, 0))

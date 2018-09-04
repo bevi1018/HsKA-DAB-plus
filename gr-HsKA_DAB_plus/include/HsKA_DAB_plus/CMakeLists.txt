@@ -25,5 +25,8 @@ install(FILES
     Super_Frame_Synchronisation.h
     OFDM_Symbol_Synchronisation.h
     OFDM_coarse_frequency_correction.h
-    DQPSK_Demodulation.h DESTINATION include/HsKA_DAB_plus
+    DQPSK_Demodulation.h
+    Remove_First_OFDM_Symbol.h
+    Frequency_Deinterleaver.h
+    Soft_Demapper.h DESTINATION include/HsKA_DAB_plus
 )

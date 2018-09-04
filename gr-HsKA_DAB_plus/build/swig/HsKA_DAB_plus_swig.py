@@ -1552,5 +1552,1085 @@ DQPSK_Demodulation_sptr_swigregister(DQPSK_Demodulation_sptr)
 DQPSK_Demodulation_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
 DQPSK_Demodulation = DQPSK_Demodulation.make;
 
+class Remove_First_OFDM_Symbol(object):
+    """Proxy of C++ gr::HsKA_DAB_plus::Remove_First_OFDM_Symbol class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
+
+    def make(vector_length):
+        """make(int vector_length) -> Remove_First_OFDM_Symbol_sptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_make(vector_length)
+
+    make = staticmethod(make)
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_Remove_First_OFDM_Symbol
+    __del__ = lambda self: None
+Remove_First_OFDM_Symbol_swigregister = _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_swigregister
+Remove_First_OFDM_Symbol_swigregister(Remove_First_OFDM_Symbol)
+
+def Remove_First_OFDM_Symbol_make(vector_length):
+    """Remove_First_OFDM_Symbol_make(int vector_length) -> Remove_First_OFDM_Symbol_sptr"""
+    return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_make(vector_length)
+
+class Remove_First_OFDM_Symbol_sptr(object):
+    """Proxy of C++ boost::shared_ptr<(gr::HsKA_DAB_plus::Remove_First_OFDM_Symbol)> class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        """
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::Remove_First_OFDM_Symbol)> self) -> Remove_First_OFDM_Symbol_sptr
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::Remove_First_OFDM_Symbol)> self, Remove_First_OFDM_Symbol p) -> Remove_First_OFDM_Symbol_sptr
+        """
+        this = _HsKA_DAB_plus_swig.new_Remove_First_OFDM_Symbol_sptr(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def __deref__(self):
+        """__deref__(Remove_First_OFDM_Symbol_sptr self) -> Remove_First_OFDM_Symbol"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr___deref__(self)
+
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_Remove_First_OFDM_Symbol_sptr
+    __del__ = lambda self: None
+
+    def make(self, vector_length):
+        """make(Remove_First_OFDM_Symbol_sptr self, int vector_length) -> Remove_First_OFDM_Symbol_sptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_make(self, vector_length)
+
+
+    def history(self):
+        """history(Remove_First_OFDM_Symbol_sptr self) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_history(self)
+
+
+    def declare_sample_delay(self, *args):
+        """
+        declare_sample_delay(Remove_First_OFDM_Symbol_sptr self, int which, int delay)
+        declare_sample_delay(Remove_First_OFDM_Symbol_sptr self, unsigned int delay)
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_declare_sample_delay(self, *args)
+
+
+    def sample_delay(self, which):
+        """sample_delay(Remove_First_OFDM_Symbol_sptr self, int which) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_sample_delay(self, which)
+
+
+    def output_multiple(self):
+        """output_multiple(Remove_First_OFDM_Symbol_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_output_multiple(self)
+
+
+    def relative_rate(self):
+        """relative_rate(Remove_First_OFDM_Symbol_sptr self) -> double"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_relative_rate(self)
+
+
+    def start(self):
+        """start(Remove_First_OFDM_Symbol_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_start(self)
+
+
+    def stop(self):
+        """stop(Remove_First_OFDM_Symbol_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_stop(self)
+
+
+    def nitems_read(self, which_input):
+        """nitems_read(Remove_First_OFDM_Symbol_sptr self, unsigned int which_input) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_nitems_read(self, which_input)
+
+
+    def nitems_written(self, which_output):
+        """nitems_written(Remove_First_OFDM_Symbol_sptr self, unsigned int which_output) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_nitems_written(self, which_output)
+
+
+    def max_noutput_items(self):
+        """max_noutput_items(Remove_First_OFDM_Symbol_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_max_noutput_items(self)
+
+
+    def set_max_noutput_items(self, m):
+        """set_max_noutput_items(Remove_First_OFDM_Symbol_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_max_noutput_items(self, m)
+
+
+    def unset_max_noutput_items(self):
+        """unset_max_noutput_items(Remove_First_OFDM_Symbol_sptr self)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_unset_max_noutput_items(self)
+
+
+    def is_set_max_noutput_items(self):
+        """is_set_max_noutput_items(Remove_First_OFDM_Symbol_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_is_set_max_noutput_items(self)
+
+
+    def set_min_noutput_items(self, m):
+        """set_min_noutput_items(Remove_First_OFDM_Symbol_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_min_noutput_items(self, m)
+
+
+    def min_noutput_items(self):
+        """min_noutput_items(Remove_First_OFDM_Symbol_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_min_noutput_items(self)
+
+
+    def max_output_buffer(self, i):
+        """max_output_buffer(Remove_First_OFDM_Symbol_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_max_output_buffer(self, i)
+
+
+    def set_max_output_buffer(self, *args):
+        """
+        set_max_output_buffer(Remove_First_OFDM_Symbol_sptr self, long max_output_buffer)
+        set_max_output_buffer(Remove_First_OFDM_Symbol_sptr self, int port, long max_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_max_output_buffer(self, *args)
+
+
+    def min_output_buffer(self, i):
+        """min_output_buffer(Remove_First_OFDM_Symbol_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_min_output_buffer(self, i)
+
+
+    def set_min_output_buffer(self, *args):
+        """
+        set_min_output_buffer(Remove_First_OFDM_Symbol_sptr self, long min_output_buffer)
+        set_min_output_buffer(Remove_First_OFDM_Symbol_sptr self, int port, long min_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_min_output_buffer(self, *args)
+
+
+    def pc_noutput_items(self):
+        """pc_noutput_items(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_noutput_items(self)
+
+
+    def pc_noutput_items_avg(self):
+        """pc_noutput_items_avg(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_noutput_items_avg(self)
+
+
+    def pc_noutput_items_var(self):
+        """pc_noutput_items_var(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_noutput_items_var(self)
+
+
+    def pc_nproduced(self):
+        """pc_nproduced(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_nproduced(self)
+
+
+    def pc_nproduced_avg(self):
+        """pc_nproduced_avg(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_nproduced_avg(self)
+
+
+    def pc_nproduced_var(self):
+        """pc_nproduced_var(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_nproduced_var(self)
+
+
+    def pc_input_buffers_full(self, *args):
+        """
+        pc_input_buffers_full(Remove_First_OFDM_Symbol_sptr self, int which) -> float
+        pc_input_buffers_full(Remove_First_OFDM_Symbol_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_input_buffers_full(self, *args)
+
+
+    def pc_input_buffers_full_avg(self, *args):
+        """
+        pc_input_buffers_full_avg(Remove_First_OFDM_Symbol_sptr self, int which) -> float
+        pc_input_buffers_full_avg(Remove_First_OFDM_Symbol_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_input_buffers_full_avg(self, *args)
+
+
+    def pc_input_buffers_full_var(self, *args):
+        """
+        pc_input_buffers_full_var(Remove_First_OFDM_Symbol_sptr self, int which) -> float
+        pc_input_buffers_full_var(Remove_First_OFDM_Symbol_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_input_buffers_full_var(self, *args)
+
+
+    def pc_output_buffers_full(self, *args):
+        """
+        pc_output_buffers_full(Remove_First_OFDM_Symbol_sptr self, int which) -> float
+        pc_output_buffers_full(Remove_First_OFDM_Symbol_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_output_buffers_full(self, *args)
+
+
+    def pc_output_buffers_full_avg(self, *args):
+        """
+        pc_output_buffers_full_avg(Remove_First_OFDM_Symbol_sptr self, int which) -> float
+        pc_output_buffers_full_avg(Remove_First_OFDM_Symbol_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_output_buffers_full_avg(self, *args)
+
+
+    def pc_output_buffers_full_var(self, *args):
+        """
+        pc_output_buffers_full_var(Remove_First_OFDM_Symbol_sptr self, int which) -> float
+        pc_output_buffers_full_var(Remove_First_OFDM_Symbol_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_output_buffers_full_var(self, *args)
+
+
+    def pc_work_time(self):
+        """pc_work_time(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_work_time(self)
+
+
+    def pc_work_time_avg(self):
+        """pc_work_time_avg(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_work_time_avg(self)
+
+
+    def pc_work_time_var(self):
+        """pc_work_time_var(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_work_time_var(self)
+
+
+    def pc_work_time_total(self):
+        """pc_work_time_total(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_work_time_total(self)
+
+
+    def pc_throughput_avg(self):
+        """pc_throughput_avg(Remove_First_OFDM_Symbol_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_pc_throughput_avg(self)
+
+
+    def set_processor_affinity(self, mask):
+        """set_processor_affinity(Remove_First_OFDM_Symbol_sptr self, std::vector< int,std::allocator< int > > const & mask)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_processor_affinity(self, mask)
+
+
+    def unset_processor_affinity(self):
+        """unset_processor_affinity(Remove_First_OFDM_Symbol_sptr self)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_unset_processor_affinity(self)
+
+
+    def processor_affinity(self):
+        """processor_affinity(Remove_First_OFDM_Symbol_sptr self) -> std::vector< int,std::allocator< int > >"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_processor_affinity(self)
+
+
+    def active_thread_priority(self):
+        """active_thread_priority(Remove_First_OFDM_Symbol_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_active_thread_priority(self)
+
+
+    def thread_priority(self):
+        """thread_priority(Remove_First_OFDM_Symbol_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_thread_priority(self)
+
+
+    def set_thread_priority(self, priority):
+        """set_thread_priority(Remove_First_OFDM_Symbol_sptr self, int priority) -> int"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_thread_priority(self, priority)
+
+
+    def name(self):
+        """name(Remove_First_OFDM_Symbol_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_name(self)
+
+
+    def symbol_name(self):
+        """symbol_name(Remove_First_OFDM_Symbol_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_symbol_name(self)
+
+
+    def input_signature(self):
+        """input_signature(Remove_First_OFDM_Symbol_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_input_signature(self)
+
+
+    def output_signature(self):
+        """output_signature(Remove_First_OFDM_Symbol_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_output_signature(self)
+
+
+    def unique_id(self):
+        """unique_id(Remove_First_OFDM_Symbol_sptr self) -> long"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_unique_id(self)
+
+
+    def to_basic_block(self):
+        """to_basic_block(Remove_First_OFDM_Symbol_sptr self) -> basic_block_sptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_to_basic_block(self)
+
+
+    def check_topology(self, ninputs, noutputs):
+        """check_topology(Remove_First_OFDM_Symbol_sptr self, int ninputs, int noutputs) -> bool"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_check_topology(self, ninputs, noutputs)
+
+
+    def alias(self):
+        """alias(Remove_First_OFDM_Symbol_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_alias(self)
+
+
+    def set_block_alias(self, name):
+        """set_block_alias(Remove_First_OFDM_Symbol_sptr self, std::string name)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_set_block_alias(self, name)
+
+
+    def _post(self, which_port, msg):
+        """_post(Remove_First_OFDM_Symbol_sptr self, swig_int_ptr which_port, swig_int_ptr msg)"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr__post(self, which_port, msg)
+
+
+    def message_ports_in(self):
+        """message_ports_in(Remove_First_OFDM_Symbol_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_message_ports_in(self)
+
+
+    def message_ports_out(self):
+        """message_ports_out(Remove_First_OFDM_Symbol_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_message_ports_out(self)
+
+
+    def message_subscribers(self, which_port):
+        """message_subscribers(Remove_First_OFDM_Symbol_sptr self, swig_int_ptr which_port) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_message_subscribers(self, which_port)
+
+Remove_First_OFDM_Symbol_sptr_swigregister = _HsKA_DAB_plus_swig.Remove_First_OFDM_Symbol_sptr_swigregister
+Remove_First_OFDM_Symbol_sptr_swigregister(Remove_First_OFDM_Symbol_sptr)
+
+
+Remove_First_OFDM_Symbol_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
+Remove_First_OFDM_Symbol = Remove_First_OFDM_Symbol.make;
+
+class Frequency_Deinterleaver(object):
+    """Proxy of C++ gr::HsKA_DAB_plus::Frequency_Deinterleaver class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
+
+    def make(N, fft_length):
+        """make(int N, int fft_length) -> Frequency_Deinterleaver_sptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_make(N, fft_length)
+
+    make = staticmethod(make)
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_Frequency_Deinterleaver
+    __del__ = lambda self: None
+Frequency_Deinterleaver_swigregister = _HsKA_DAB_plus_swig.Frequency_Deinterleaver_swigregister
+Frequency_Deinterleaver_swigregister(Frequency_Deinterleaver)
+
+def Frequency_Deinterleaver_make(N, fft_length):
+    """Frequency_Deinterleaver_make(int N, int fft_length) -> Frequency_Deinterleaver_sptr"""
+    return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_make(N, fft_length)
+
+class Frequency_Deinterleaver_sptr(object):
+    """Proxy of C++ boost::shared_ptr<(gr::HsKA_DAB_plus::Frequency_Deinterleaver)> class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        """
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::Frequency_Deinterleaver)> self) -> Frequency_Deinterleaver_sptr
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::Frequency_Deinterleaver)> self, Frequency_Deinterleaver p) -> Frequency_Deinterleaver_sptr
+        """
+        this = _HsKA_DAB_plus_swig.new_Frequency_Deinterleaver_sptr(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def __deref__(self):
+        """__deref__(Frequency_Deinterleaver_sptr self) -> Frequency_Deinterleaver"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr___deref__(self)
+
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_Frequency_Deinterleaver_sptr
+    __del__ = lambda self: None
+
+    def make(self, N, fft_length):
+        """make(Frequency_Deinterleaver_sptr self, int N, int fft_length) -> Frequency_Deinterleaver_sptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_make(self, N, fft_length)
+
+
+    def history(self):
+        """history(Frequency_Deinterleaver_sptr self) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_history(self)
+
+
+    def declare_sample_delay(self, *args):
+        """
+        declare_sample_delay(Frequency_Deinterleaver_sptr self, int which, int delay)
+        declare_sample_delay(Frequency_Deinterleaver_sptr self, unsigned int delay)
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_declare_sample_delay(self, *args)
+
+
+    def sample_delay(self, which):
+        """sample_delay(Frequency_Deinterleaver_sptr self, int which) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_sample_delay(self, which)
+
+
+    def output_multiple(self):
+        """output_multiple(Frequency_Deinterleaver_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_output_multiple(self)
+
+
+    def relative_rate(self):
+        """relative_rate(Frequency_Deinterleaver_sptr self) -> double"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_relative_rate(self)
+
+
+    def start(self):
+        """start(Frequency_Deinterleaver_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_start(self)
+
+
+    def stop(self):
+        """stop(Frequency_Deinterleaver_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_stop(self)
+
+
+    def nitems_read(self, which_input):
+        """nitems_read(Frequency_Deinterleaver_sptr self, unsigned int which_input) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_nitems_read(self, which_input)
+
+
+    def nitems_written(self, which_output):
+        """nitems_written(Frequency_Deinterleaver_sptr self, unsigned int which_output) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_nitems_written(self, which_output)
+
+
+    def max_noutput_items(self):
+        """max_noutput_items(Frequency_Deinterleaver_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_max_noutput_items(self)
+
+
+    def set_max_noutput_items(self, m):
+        """set_max_noutput_items(Frequency_Deinterleaver_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_max_noutput_items(self, m)
+
+
+    def unset_max_noutput_items(self):
+        """unset_max_noutput_items(Frequency_Deinterleaver_sptr self)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_unset_max_noutput_items(self)
+
+
+    def is_set_max_noutput_items(self):
+        """is_set_max_noutput_items(Frequency_Deinterleaver_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_is_set_max_noutput_items(self)
+
+
+    def set_min_noutput_items(self, m):
+        """set_min_noutput_items(Frequency_Deinterleaver_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_min_noutput_items(self, m)
+
+
+    def min_noutput_items(self):
+        """min_noutput_items(Frequency_Deinterleaver_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_min_noutput_items(self)
+
+
+    def max_output_buffer(self, i):
+        """max_output_buffer(Frequency_Deinterleaver_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_max_output_buffer(self, i)
+
+
+    def set_max_output_buffer(self, *args):
+        """
+        set_max_output_buffer(Frequency_Deinterleaver_sptr self, long max_output_buffer)
+        set_max_output_buffer(Frequency_Deinterleaver_sptr self, int port, long max_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_max_output_buffer(self, *args)
+
+
+    def min_output_buffer(self, i):
+        """min_output_buffer(Frequency_Deinterleaver_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_min_output_buffer(self, i)
+
+
+    def set_min_output_buffer(self, *args):
+        """
+        set_min_output_buffer(Frequency_Deinterleaver_sptr self, long min_output_buffer)
+        set_min_output_buffer(Frequency_Deinterleaver_sptr self, int port, long min_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_min_output_buffer(self, *args)
+
+
+    def pc_noutput_items(self):
+        """pc_noutput_items(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_noutput_items(self)
+
+
+    def pc_noutput_items_avg(self):
+        """pc_noutput_items_avg(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_noutput_items_avg(self)
+
+
+    def pc_noutput_items_var(self):
+        """pc_noutput_items_var(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_noutput_items_var(self)
+
+
+    def pc_nproduced(self):
+        """pc_nproduced(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_nproduced(self)
+
+
+    def pc_nproduced_avg(self):
+        """pc_nproduced_avg(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_nproduced_avg(self)
+
+
+    def pc_nproduced_var(self):
+        """pc_nproduced_var(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_nproduced_var(self)
+
+
+    def pc_input_buffers_full(self, *args):
+        """
+        pc_input_buffers_full(Frequency_Deinterleaver_sptr self, int which) -> float
+        pc_input_buffers_full(Frequency_Deinterleaver_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_input_buffers_full(self, *args)
+
+
+    def pc_input_buffers_full_avg(self, *args):
+        """
+        pc_input_buffers_full_avg(Frequency_Deinterleaver_sptr self, int which) -> float
+        pc_input_buffers_full_avg(Frequency_Deinterleaver_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_input_buffers_full_avg(self, *args)
+
+
+    def pc_input_buffers_full_var(self, *args):
+        """
+        pc_input_buffers_full_var(Frequency_Deinterleaver_sptr self, int which) -> float
+        pc_input_buffers_full_var(Frequency_Deinterleaver_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_input_buffers_full_var(self, *args)
+
+
+    def pc_output_buffers_full(self, *args):
+        """
+        pc_output_buffers_full(Frequency_Deinterleaver_sptr self, int which) -> float
+        pc_output_buffers_full(Frequency_Deinterleaver_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_output_buffers_full(self, *args)
+
+
+    def pc_output_buffers_full_avg(self, *args):
+        """
+        pc_output_buffers_full_avg(Frequency_Deinterleaver_sptr self, int which) -> float
+        pc_output_buffers_full_avg(Frequency_Deinterleaver_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_output_buffers_full_avg(self, *args)
+
+
+    def pc_output_buffers_full_var(self, *args):
+        """
+        pc_output_buffers_full_var(Frequency_Deinterleaver_sptr self, int which) -> float
+        pc_output_buffers_full_var(Frequency_Deinterleaver_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_output_buffers_full_var(self, *args)
+
+
+    def pc_work_time(self):
+        """pc_work_time(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_work_time(self)
+
+
+    def pc_work_time_avg(self):
+        """pc_work_time_avg(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_work_time_avg(self)
+
+
+    def pc_work_time_var(self):
+        """pc_work_time_var(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_work_time_var(self)
+
+
+    def pc_work_time_total(self):
+        """pc_work_time_total(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_work_time_total(self)
+
+
+    def pc_throughput_avg(self):
+        """pc_throughput_avg(Frequency_Deinterleaver_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_pc_throughput_avg(self)
+
+
+    def set_processor_affinity(self, mask):
+        """set_processor_affinity(Frequency_Deinterleaver_sptr self, std::vector< int,std::allocator< int > > const & mask)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_processor_affinity(self, mask)
+
+
+    def unset_processor_affinity(self):
+        """unset_processor_affinity(Frequency_Deinterleaver_sptr self)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_unset_processor_affinity(self)
+
+
+    def processor_affinity(self):
+        """processor_affinity(Frequency_Deinterleaver_sptr self) -> std::vector< int,std::allocator< int > >"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_processor_affinity(self)
+
+
+    def active_thread_priority(self):
+        """active_thread_priority(Frequency_Deinterleaver_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_active_thread_priority(self)
+
+
+    def thread_priority(self):
+        """thread_priority(Frequency_Deinterleaver_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_thread_priority(self)
+
+
+    def set_thread_priority(self, priority):
+        """set_thread_priority(Frequency_Deinterleaver_sptr self, int priority) -> int"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_thread_priority(self, priority)
+
+
+    def name(self):
+        """name(Frequency_Deinterleaver_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_name(self)
+
+
+    def symbol_name(self):
+        """symbol_name(Frequency_Deinterleaver_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_symbol_name(self)
+
+
+    def input_signature(self):
+        """input_signature(Frequency_Deinterleaver_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_input_signature(self)
+
+
+    def output_signature(self):
+        """output_signature(Frequency_Deinterleaver_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_output_signature(self)
+
+
+    def unique_id(self):
+        """unique_id(Frequency_Deinterleaver_sptr self) -> long"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_unique_id(self)
+
+
+    def to_basic_block(self):
+        """to_basic_block(Frequency_Deinterleaver_sptr self) -> basic_block_sptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_to_basic_block(self)
+
+
+    def check_topology(self, ninputs, noutputs):
+        """check_topology(Frequency_Deinterleaver_sptr self, int ninputs, int noutputs) -> bool"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_check_topology(self, ninputs, noutputs)
+
+
+    def alias(self):
+        """alias(Frequency_Deinterleaver_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_alias(self)
+
+
+    def set_block_alias(self, name):
+        """set_block_alias(Frequency_Deinterleaver_sptr self, std::string name)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_set_block_alias(self, name)
+
+
+    def _post(self, which_port, msg):
+        """_post(Frequency_Deinterleaver_sptr self, swig_int_ptr which_port, swig_int_ptr msg)"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr__post(self, which_port, msg)
+
+
+    def message_ports_in(self):
+        """message_ports_in(Frequency_Deinterleaver_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_message_ports_in(self)
+
+
+    def message_ports_out(self):
+        """message_ports_out(Frequency_Deinterleaver_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_message_ports_out(self)
+
+
+    def message_subscribers(self, which_port):
+        """message_subscribers(Frequency_Deinterleaver_sptr self, swig_int_ptr which_port) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_message_subscribers(self, which_port)
+
+Frequency_Deinterleaver_sptr_swigregister = _HsKA_DAB_plus_swig.Frequency_Deinterleaver_sptr_swigregister
+Frequency_Deinterleaver_sptr_swigregister(Frequency_Deinterleaver_sptr)
+
+
+Frequency_Deinterleaver_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
+Frequency_Deinterleaver = Frequency_Deinterleaver.make;
+
+class Soft_Demapper(object):
+    """Proxy of C++ gr::HsKA_DAB_plus::Soft_Demapper class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
+
+    def make(vector_length):
+        """make(int vector_length) -> Soft_Demapper_sptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_make(vector_length)
+
+    make = staticmethod(make)
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_Soft_Demapper
+    __del__ = lambda self: None
+Soft_Demapper_swigregister = _HsKA_DAB_plus_swig.Soft_Demapper_swigregister
+Soft_Demapper_swigregister(Soft_Demapper)
+
+def Soft_Demapper_make(vector_length):
+    """Soft_Demapper_make(int vector_length) -> Soft_Demapper_sptr"""
+    return _HsKA_DAB_plus_swig.Soft_Demapper_make(vector_length)
+
+class Soft_Demapper_sptr(object):
+    """Proxy of C++ boost::shared_ptr<(gr::HsKA_DAB_plus::Soft_Demapper)> class."""
+
+    thisown = _swig_property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        """
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::Soft_Demapper)> self) -> Soft_Demapper_sptr
+        __init__(boost::shared_ptr<(gr::HsKA_DAB_plus::Soft_Demapper)> self, Soft_Demapper p) -> Soft_Demapper_sptr
+        """
+        this = _HsKA_DAB_plus_swig.new_Soft_Demapper_sptr(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def __deref__(self):
+        """__deref__(Soft_Demapper_sptr self) -> Soft_Demapper"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr___deref__(self)
+
+    __swig_destroy__ = _HsKA_DAB_plus_swig.delete_Soft_Demapper_sptr
+    __del__ = lambda self: None
+
+    def make(self, vector_length):
+        """make(Soft_Demapper_sptr self, int vector_length) -> Soft_Demapper_sptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_make(self, vector_length)
+
+
+    def history(self):
+        """history(Soft_Demapper_sptr self) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_history(self)
+
+
+    def declare_sample_delay(self, *args):
+        """
+        declare_sample_delay(Soft_Demapper_sptr self, int which, int delay)
+        declare_sample_delay(Soft_Demapper_sptr self, unsigned int delay)
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_declare_sample_delay(self, *args)
+
+
+    def sample_delay(self, which):
+        """sample_delay(Soft_Demapper_sptr self, int which) -> unsigned int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_sample_delay(self, which)
+
+
+    def output_multiple(self):
+        """output_multiple(Soft_Demapper_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_output_multiple(self)
+
+
+    def relative_rate(self):
+        """relative_rate(Soft_Demapper_sptr self) -> double"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_relative_rate(self)
+
+
+    def start(self):
+        """start(Soft_Demapper_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_start(self)
+
+
+    def stop(self):
+        """stop(Soft_Demapper_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_stop(self)
+
+
+    def nitems_read(self, which_input):
+        """nitems_read(Soft_Demapper_sptr self, unsigned int which_input) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_nitems_read(self, which_input)
+
+
+    def nitems_written(self, which_output):
+        """nitems_written(Soft_Demapper_sptr self, unsigned int which_output) -> uint64_t"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_nitems_written(self, which_output)
+
+
+    def max_noutput_items(self):
+        """max_noutput_items(Soft_Demapper_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_max_noutput_items(self)
+
+
+    def set_max_noutput_items(self, m):
+        """set_max_noutput_items(Soft_Demapper_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_max_noutput_items(self, m)
+
+
+    def unset_max_noutput_items(self):
+        """unset_max_noutput_items(Soft_Demapper_sptr self)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_unset_max_noutput_items(self)
+
+
+    def is_set_max_noutput_items(self):
+        """is_set_max_noutput_items(Soft_Demapper_sptr self) -> bool"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_is_set_max_noutput_items(self)
+
+
+    def set_min_noutput_items(self, m):
+        """set_min_noutput_items(Soft_Demapper_sptr self, int m)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_min_noutput_items(self, m)
+
+
+    def min_noutput_items(self):
+        """min_noutput_items(Soft_Demapper_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_min_noutput_items(self)
+
+
+    def max_output_buffer(self, i):
+        """max_output_buffer(Soft_Demapper_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_max_output_buffer(self, i)
+
+
+    def set_max_output_buffer(self, *args):
+        """
+        set_max_output_buffer(Soft_Demapper_sptr self, long max_output_buffer)
+        set_max_output_buffer(Soft_Demapper_sptr self, int port, long max_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_max_output_buffer(self, *args)
+
+
+    def min_output_buffer(self, i):
+        """min_output_buffer(Soft_Demapper_sptr self, int i) -> long"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_min_output_buffer(self, i)
+
+
+    def set_min_output_buffer(self, *args):
+        """
+        set_min_output_buffer(Soft_Demapper_sptr self, long min_output_buffer)
+        set_min_output_buffer(Soft_Demapper_sptr self, int port, long min_output_buffer)
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_min_output_buffer(self, *args)
+
+
+    def pc_noutput_items(self):
+        """pc_noutput_items(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_noutput_items(self)
+
+
+    def pc_noutput_items_avg(self):
+        """pc_noutput_items_avg(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_noutput_items_avg(self)
+
+
+    def pc_noutput_items_var(self):
+        """pc_noutput_items_var(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_noutput_items_var(self)
+
+
+    def pc_nproduced(self):
+        """pc_nproduced(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_nproduced(self)
+
+
+    def pc_nproduced_avg(self):
+        """pc_nproduced_avg(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_nproduced_avg(self)
+
+
+    def pc_nproduced_var(self):
+        """pc_nproduced_var(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_nproduced_var(self)
+
+
+    def pc_input_buffers_full(self, *args):
+        """
+        pc_input_buffers_full(Soft_Demapper_sptr self, int which) -> float
+        pc_input_buffers_full(Soft_Demapper_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_input_buffers_full(self, *args)
+
+
+    def pc_input_buffers_full_avg(self, *args):
+        """
+        pc_input_buffers_full_avg(Soft_Demapper_sptr self, int which) -> float
+        pc_input_buffers_full_avg(Soft_Demapper_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_input_buffers_full_avg(self, *args)
+
+
+    def pc_input_buffers_full_var(self, *args):
+        """
+        pc_input_buffers_full_var(Soft_Demapper_sptr self, int which) -> float
+        pc_input_buffers_full_var(Soft_Demapper_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_input_buffers_full_var(self, *args)
+
+
+    def pc_output_buffers_full(self, *args):
+        """
+        pc_output_buffers_full(Soft_Demapper_sptr self, int which) -> float
+        pc_output_buffers_full(Soft_Demapper_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_output_buffers_full(self, *args)
+
+
+    def pc_output_buffers_full_avg(self, *args):
+        """
+        pc_output_buffers_full_avg(Soft_Demapper_sptr self, int which) -> float
+        pc_output_buffers_full_avg(Soft_Demapper_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_output_buffers_full_avg(self, *args)
+
+
+    def pc_output_buffers_full_var(self, *args):
+        """
+        pc_output_buffers_full_var(Soft_Demapper_sptr self, int which) -> float
+        pc_output_buffers_full_var(Soft_Demapper_sptr self) -> pmt_vector_float
+        """
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_output_buffers_full_var(self, *args)
+
+
+    def pc_work_time(self):
+        """pc_work_time(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_work_time(self)
+
+
+    def pc_work_time_avg(self):
+        """pc_work_time_avg(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_work_time_avg(self)
+
+
+    def pc_work_time_var(self):
+        """pc_work_time_var(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_work_time_var(self)
+
+
+    def pc_work_time_total(self):
+        """pc_work_time_total(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_work_time_total(self)
+
+
+    def pc_throughput_avg(self):
+        """pc_throughput_avg(Soft_Demapper_sptr self) -> float"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_pc_throughput_avg(self)
+
+
+    def set_processor_affinity(self, mask):
+        """set_processor_affinity(Soft_Demapper_sptr self, std::vector< int,std::allocator< int > > const & mask)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_processor_affinity(self, mask)
+
+
+    def unset_processor_affinity(self):
+        """unset_processor_affinity(Soft_Demapper_sptr self)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_unset_processor_affinity(self)
+
+
+    def processor_affinity(self):
+        """processor_affinity(Soft_Demapper_sptr self) -> std::vector< int,std::allocator< int > >"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_processor_affinity(self)
+
+
+    def active_thread_priority(self):
+        """active_thread_priority(Soft_Demapper_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_active_thread_priority(self)
+
+
+    def thread_priority(self):
+        """thread_priority(Soft_Demapper_sptr self) -> int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_thread_priority(self)
+
+
+    def set_thread_priority(self, priority):
+        """set_thread_priority(Soft_Demapper_sptr self, int priority) -> int"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_thread_priority(self, priority)
+
+
+    def name(self):
+        """name(Soft_Demapper_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_name(self)
+
+
+    def symbol_name(self):
+        """symbol_name(Soft_Demapper_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_symbol_name(self)
+
+
+    def input_signature(self):
+        """input_signature(Soft_Demapper_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_input_signature(self)
+
+
+    def output_signature(self):
+        """output_signature(Soft_Demapper_sptr self) -> io_signature_sptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_output_signature(self)
+
+
+    def unique_id(self):
+        """unique_id(Soft_Demapper_sptr self) -> long"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_unique_id(self)
+
+
+    def to_basic_block(self):
+        """to_basic_block(Soft_Demapper_sptr self) -> basic_block_sptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_to_basic_block(self)
+
+
+    def check_topology(self, ninputs, noutputs):
+        """check_topology(Soft_Demapper_sptr self, int ninputs, int noutputs) -> bool"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_check_topology(self, ninputs, noutputs)
+
+
+    def alias(self):
+        """alias(Soft_Demapper_sptr self) -> std::string"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_alias(self)
+
+
+    def set_block_alias(self, name):
+        """set_block_alias(Soft_Demapper_sptr self, std::string name)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_set_block_alias(self, name)
+
+
+    def _post(self, which_port, msg):
+        """_post(Soft_Demapper_sptr self, swig_int_ptr which_port, swig_int_ptr msg)"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr__post(self, which_port, msg)
+
+
+    def message_ports_in(self):
+        """message_ports_in(Soft_Demapper_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_message_ports_in(self)
+
+
+    def message_ports_out(self):
+        """message_ports_out(Soft_Demapper_sptr self) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_message_ports_out(self)
+
+
+    def message_subscribers(self, which_port):
+        """message_subscribers(Soft_Demapper_sptr self, swig_int_ptr which_port) -> swig_int_ptr"""
+        return _HsKA_DAB_plus_swig.Soft_Demapper_sptr_message_subscribers(self, which_port)
+
+Soft_Demapper_sptr_swigregister = _HsKA_DAB_plus_swig.Soft_Demapper_sptr_swigregister
+Soft_Demapper_sptr_swigregister(Soft_Demapper_sptr)
+
+
+Soft_Demapper_sptr.__repr__ = lambda self: "<gr_block %s (%d)>" % (self.name(), self.unique_id())
+Soft_Demapper = Soft_Demapper.make;
+
 
 

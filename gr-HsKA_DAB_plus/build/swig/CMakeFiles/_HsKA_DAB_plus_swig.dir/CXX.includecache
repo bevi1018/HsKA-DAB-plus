@@ -12,6 +12,12 @@ HsKA_DAB_plus/api.h
 gnuradio/block.h
 -
 
+../include/HsKA_DAB_plus/Frequency_Deinterleaver.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
 ../include/HsKA_DAB_plus/OFDM_Symbol_Synchronisation.h
 HsKA_DAB_plus/api.h
 -
@@ -19,6 +25,18 @@ gnuradio/block.h
 -
 
 ../include/HsKA_DAB_plus/OFDM_coarse_frequency_correction.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
+../include/HsKA_DAB_plus/Remove_First_OFDM_Symbol.h
+HsKA_DAB_plus/api.h
+-
+gnuradio/block.h
+-
+
+../include/HsKA_DAB_plus/Soft_Demapper.h
 HsKA_DAB_plus/api.h
 -
 gnuradio/block.h
@@ -89,6 +107,12 @@ HsKA_DAB_plus/OFDM_coarse_frequency_correction.h
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/OFDM_coarse_frequency_correction.h
 HsKA_DAB_plus/DQPSK_Demodulation.h
 /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/DQPSK_Demodulation.h
+HsKA_DAB_plus/Remove_First_OFDM_Symbol.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/Remove_First_OFDM_Symbol.h
+HsKA_DAB_plus/Frequency_Deinterleaver.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/Frequency_Deinterleaver.h
+HsKA_DAB_plus/Soft_Demapper.h
+/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus/Soft_Demapper.h
 float.h
 -
 math.h

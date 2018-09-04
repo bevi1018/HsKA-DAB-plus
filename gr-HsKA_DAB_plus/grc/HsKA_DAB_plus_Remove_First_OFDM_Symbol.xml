@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<block>
+	<name>Remove_First_OFDM_Symbol</name>
+	<key>HsKA_DAB_plus_Remove_First_OFDM_Symbol</key>
+	<category>[HsKA_DAB_plus]</category>
+	<import>import HsKA_DAB_plus</import>
+	<make>HsKA_DAB_plus.Remove_First_OFDM_Symbol($vector_length)</make>
+
+<param>
+	<name>Vector Length</name>
+	<key>vector_length</key>
+	<value>1536</value>
+	<type>int</type>
+</param>
+
+<sink>
+	<name>in</name>
+	<type>complex</type>
+	<vlen>$vector_length</vlen>
+</sink>
+	
+<sink>
+	<name>sync</name>
+	<type>byte</type>
+</sink>
+
+<source>
+	<name>out</name>
+	<type>complex</type>
+	<vlen>$vector_length</vlen>
+</source>
+	
+<source>
+	<name>sync</name>
+	<type>byte</type>
+</source>
+
+</block>

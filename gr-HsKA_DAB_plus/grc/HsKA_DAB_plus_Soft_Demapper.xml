@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<block>
+	<name>Soft_Demapper</name>
+	<key>HsKA_DAB_plus_Soft_Demapper</key>
+	<category>[HsKA_DAB_plus]</category>
+	<import>import HsKA_DAB_plus</import>
+	<make>HsKA_DAB_plus.Soft_Demapper($vector_length)</make>
+
+<param>
+	<name>Vector Length</name>
+	<key>vector_length</key>
+	<value>1536</value>
+	<type>int</type>
+</param>
+
+<sink>
+	<name>in</name>
+	<type>complex</type>
+	<vlen>$vector_length</vlen>
+</sink>
+
+<source>
+	<name>out</name>
+	<type>float</type>
+	<vlen>$vector_length*2</vlen>
+</source>
+
+</block>

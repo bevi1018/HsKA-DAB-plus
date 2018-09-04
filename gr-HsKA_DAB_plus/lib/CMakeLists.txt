@@ -30,6 +30,9 @@ list(APPEND HsKA_DAB_plus_sources
     OFDM_Symbol_Synchronisation_impl.cc
     OFDM_coarse_frequency_correction_impl.cc
     DQPSK_Demodulation_impl.cc
+    Remove_First_OFDM_Symbol_impl.cc
+    Frequency_Deinterleaver_impl.cc
+    Soft_Demapper_impl.cc
 )
 
 set(HsKA_DAB_plus_sources "${HsKA_DAB_plus_sources}" PARENT_SCOPE)
