@@ -18,44 +18,81 @@
  * Boston, MA 02110-1301, USA.
  */
 
+/*
+Hochschule Karlsruhe Technik u. Wirtschaft (HsKa)
+Projektarbeit Master
+- Projekt: DAB+ Empfänger mit Gnu Radio
+- Studenten: David Kohler, Vivian Becher
+- Professor: M. Litzenburger
+- Datum: 04.09.18
+--------------------------------------------------
+Informationen
+- Block: Departitioning
+- Beschreibung: Dieser Block trennt den Fast Information Channel von dem Main Service Channel. Beim Main Service Channel wird nur der aktuell eingestellte Subchannel ausgegeben
+- Quellen: [1] ETSI Standard EN 300 401
+*/
+
 #ifndef INCLUDED_HSKA_DAB_PLUS_DEPARTITIONING_IMPL_H
 #define INCLUDED_HSKA_DAB_PLUS_DEPARTITIONING_IMPL_H
 
 #include <HsKA_DAB_plus/Departitioning.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
-
-	class Departitioning_impl : public Departitioning
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
 	{
-	private:
-	int vector_length;
-	int cif_length;
-	int fic_length;
+		class Departitioning_impl : public Departitioning
+		{
+		private:
+			int32_t m_vector_length;		///< Anzahl der OFDM-Untertraeger
+			int32_t m_cif_length;			///< Laenge eine CIFs in Anzahl Werte
+			int32_t m_fic_length;			///< Laenge eine FICs in Anzahl Werte
 
-	int symbol_counter;
-	int write_index;
+			int32_t m_symbol_counter;		///< Symbolzaehler
+			int32_t m_write_index;			///< Schreibzaehler
+			
+			float *m_cif_buffer;			///< Speicher fuer den aktuellen CIF-Block
+			float *m_fic_buffer;			///< Speicher fuer alle FIC-Bloecke
+			
+			int32_t m_remaining_fic_count;	///< Anzahl der FIC-Bloecke im FIC-Speicher
+			
+			int32_t m_debug_enable;			///< Debugswitch
 
-	bool is_first_cif;
-	float *block_buffer;
+			shared_database *m_database; ///< Datenbank-Objekt. Daraus wird die aktuell eingestellte Subchannel ID gelesen (DB_SELECTED_SUBCHANNEL_ID)
 
-	float *fic_buffer;
-	int remaining_fic_count;
+		public:
+			/**
+			 * Konstruktor fuer diesen Block
+			 * \param databaseID ID der Datenbank, von der die eingestellte Subchannel ID gelesen werden kann (DB_SELECTED_SUBCHANNEL_ID)
+			 * \param vector_length Anzahl der OFDM Untertraeger
+			 * \param debug_enable 0 deaktiviert die Debugausgabe, sonst werden Debugdaten ausgegeben
+ 			 */
+			Departitioning_impl(char *databaseID, int vector_length, int32_t debug_enable);
+			
+			/**
+			 * Destruktor
+			 */
+			~Departitioning_impl();
 
-	bool sync_received;
+			/**
+			 * Funktion zur Vorhersage, wie viele Eingangsdaten am jeweiligen Port benoetigt werden, um noutput_items generieren zu koennen.
+			 * Wichtig fuer den Scheduler in GnuRadio.
+			 * \param noutput_items Gibt an, wieviele Ausgangsdaten erzeugt werden sollen.
+			 * \param ninput_items_required Gibt an, wieviele Eingangsdaten am jeweilgen Port benoetigt werden. Wird von der Funktion befuellt.
+			 */
+			void forecast (int32_t noutput_items, gr_vector_int &ninput_items_required);
 
-	gr::database_module::shared_database *m_database;
-
-	public:
-	Departitioning_impl(gr::database_module::shared_database *database, int vector_length);
-	~Departitioning_impl();
-
-
-	void forecast (int noutput_items, gr_vector_int &ninput_items_required);
-	int general_work(int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items);
-	};
-
-  } // namespace HsKA_DAB_plus
+			/**
+			 * Beinhaltet die eingentliche Funktionalitaet. Hier werden die Eingangsdaten verarbeitet und an den entsprechenden Ausgangsport ausgegeben.
+			 * Wird von Scheduler in GnuRadio aufgerufen.
+			 * \param noutput_items Gibt an, wieviele Ausgangsdaten erzeugt werden sollen.
+			 * \param ninput_items Gibt an, wieviele Eingangsdaten am jeweiligen Eingangsport zur Verfuegung stehen.
+			 * \param input_items Datenvektor fuer die Eingangsdaten
+			 * \param output_items Datenvektor fuer die Ausgangsdaten
+			 */
+			int32_t general_work(int32_t noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_DEPARTITIONING_IMPL_H */

@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /* 
- * Copyright 2018 <+YOU OR YOUR COMPANY+>.
+ * Copyright 2018 HsKA
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// Genauere Beschreibung unter Frequency_Deinterleaver_impl.h
 
 #ifndef INCLUDED_HSKA_DAB_PLUS_FREQUENCY_DEINTERLEAVER_H
 #define INCLUDED_HSKA_DAB_PLUS_FREQUENCY_DEINTERLEAVER_H
@@ -25,31 +26,26 @@
 #include <HsKA_DAB_plus/api.h>
 #include <gnuradio/block.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+#include <stdint.h>
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup HsKA_DAB_plus
-     *
-     */
-    class HSKA_DAB_PLUS_API Frequency_Deinterleaver : virtual public gr::block
-    {
-     public:
-      typedef boost::shared_ptr<Frequency_Deinterleaver> sptr;
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
+	{
+		class HSKA_DAB_PLUS_API Frequency_Deinterleaver : virtual public gr::block
+		{
+		public:
+			// Typdefinition fuer einen shared_ptr zu diesem Block
+			typedef boost::shared_ptr<Frequency_Deinterleaver> sptr;
 
-      /*!
-       * \brief Return a shared_ptr to a new instance of HsKA_DAB_plus::Frequency_Deinterleaver.
-       *
-       * To avoid accidental use of raw pointers, HsKA_DAB_plus::Frequency_Deinterleaver's
-       * constructor is in a private implementation
-       * class. HsKA_DAB_plus::Frequency_Deinterleaver::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make(int N, int fft_length);
-    };
-
-  } // namespace HsKA_DAB_plus
+			/**
+			 * Konstruktor fuer diesen Block
+			 * \param vector_length Anzahl der OFDM Untertraeger
+			 * \param fft_length Laenge der FFT
+ 			 */
+			static sptr make(int32_t vector_length, int32_t fft_length);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_FREQUENCY_DEINTERLEAVER_H */

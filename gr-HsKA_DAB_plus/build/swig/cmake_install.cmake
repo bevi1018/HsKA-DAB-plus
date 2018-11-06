@@ -1,8 +1,8 @@
-# Install script for directory: /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/swig
+# Install script for directory: /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/swig
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "/home/gnuradiouser/gnuradio/installation/default")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus/_HsKA_DAB_plus_swig.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus" TYPE MODULE FILES "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/_HsKA_DAB_plus_swig.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus" TYPE MODULE FILES "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/swig/_HsKA_DAB_plus_swig.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus/_HsKA_DAB_plus_swig.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus/_HsKA_DAB_plus_swig.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus/_HsKA_DAB_plus_swig.so"
-         OLD_RPATH "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/lib:"
+         OLD_RPATH "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/lib:/home/gnuradiouser/gnuradio/installation/default/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus/_HsKA_DAB_plus_swig.so")
@@ -58,20 +58,20 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus" TYPE FILE FILES "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus" TYPE FILE FILES "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/HsKA_DAB_plus" TYPE FILE FILES
-    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig.pyc"
-    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig.pyo"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig.pyc"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig.pyo"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/HsKA_DAB_plus/HsKA_DAB_plus/swig" TYPE FILE FILES
-    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/swig/HsKA_DAB_plus_swig.i"
-    "/home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig_doc.i"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/swig/HsKA_DAB_plus_swig.i"
+    "/home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/swig/HsKA_DAB_plus_swig_doc.i"
     )
 endif()
 

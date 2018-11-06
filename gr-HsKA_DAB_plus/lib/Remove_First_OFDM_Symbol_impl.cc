@@ -22,75 +22,68 @@
 #include "config.h"
 #endif
 
-#include "Header_File.h"
-
 #include <gnuradio/io_signature.h>
 #include "Remove_First_OFDM_Symbol_impl.h"
 
-namespace gr {
-  namespace HsKA_DAB_plus {
-
-	Remove_First_OFDM_Symbol::sptr
-	Remove_First_OFDM_Symbol::make(int vector_length)
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
 	{
-	return gnuradio::get_initial_sptr(new Remove_First_OFDM_Symbol_impl(vector_length));
-	}
-
-	Remove_First_OFDM_Symbol_impl::Remove_First_OFDM_Symbol_impl(int vector_length)
-	: gr::block("Remove_First_OFDM_Symbol", gr::io_signature::make2(2, 2, vector_length*sizeof(gr_complex), sizeof(byte)), gr::io_signature::make2(2, 2, vector_length*sizeof(gr_complex), sizeof(byte))),
-	  d_vlen(vector_length), d_start(0)
-	{}
-
-	Remove_First_OFDM_Symbol_impl::~Remove_First_OFDM_Symbol_impl()
-	{
-	}
-
-	void
-	Remove_First_OFDM_Symbol_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-	{
-		for(int i = 0; i < ninput_items_required.size(); ++i)
+		Remove_First_OFDM_Symbol::sptr Remove_First_OFDM_Symbol::make(int32_t vector_length)
 		{
-			ninput_items_required[i] = noutput_items;
+			// Instanz des Blocks erzeugen und GnuRadio zur Verfügung stellen
+			return gnuradio::get_initial_sptr(new Remove_First_OFDM_Symbol_impl(vector_length));
 		}
-	}
 
-	int
-	Remove_First_OFDM_Symbol_impl::general_work (int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
-	{
-	const gr_complex *iptr = (const gr_complex *) input_items[0];
-	const char *frame_start = (const char *) input_items[1];
-	gr_complex *optr = (gr_complex *) output_items[0];
-	char *o_frame_start = (char *) output_items[1];
-
-	int n_consumed = 0;
-	int n_produced = 0;
-
-	for (n_consumed=0; n_consumed<ninput_items[0] && n_consumed<ninput_items[1] && n_produced<noutput_items; n_consumed++)
-	{
-		if (*frame_start == 1)
+		Remove_First_OFDM_Symbol_impl::Remove_First_OFDM_Symbol_impl(int32_t vector_length)
+			: gr::block("Remove_First_OFDM_Symbol",
+						gr::io_signature::make2(2, 2, vector_length * sizeof(gr_complex), sizeof(uint8_t)),
+						gr::io_signature::make2(2, 2, vector_length * sizeof(gr_complex), sizeof(uint8_t))),
+						m_vector_length(vector_length), m_last_was_phase_ref(false)
 		{
-			d_start = 1;
-			iptr += d_vlen;
 		}
-		else
+
+		Remove_First_OFDM_Symbol_impl::~Remove_First_OFDM_Symbol_impl()
 		{
-			*o_frame_start++ = d_start;
-			n_produced++;
-			d_start = 0;
-			for (unsigned int j=0; j<d_vlen; j++)
+		}
+
+		void Remove_First_OFDM_Symbol_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
+		{
+			// Es werden genauso viele Daten ausgegeben, wie eingelesen werden.
+			for(int32_t i = 0; i < ninput_items_required.size(); ++i)
 			{
-				*optr++ = *iptr++;
+				ninput_items_required[i] = noutput_items;
 			}
 		}
-		frame_start++;
-	}
 
-	// printf("ninput_items[0]: %d, ninput_items[1]: %d, noutput_items: %d, consumed: %d, produced: %d\n", ninput_items[0], ninput_items[1], noutput_items, n_consumed, n_produced);
-
-	consume_each(n_consumed);
-	return n_produced;
-	}
-
-  } /* namespace HsKA_DAB_plus */
+		int Remove_First_OFDM_Symbol_impl::general_work (int32_t noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
+		{
+			const gr_complex *in	= (const gr_complex *) input_items[0];
+			const uint8_t *sync_in	= (const uint8_t *) input_items[1];
+			gr_complex *out			= (gr_complex *) output_items[0];
+			uint8_t *sync_out		= (uint8_t *) output_items[1];
+			
+			if(sync_in[0] != 0)
+			{
+				m_last_was_phase_ref = true;
+				consume_each(1);
+				return 0;
+			}
+			else
+			{
+				memcpy(out, in, m_vector_length * sizeof(gr_complex));
+				
+				if(m_last_was_phase_ref)
+					sync_out[0] = 1;
+				else
+					sync_out[0] = 0;
+				
+				m_last_was_phase_ref = false;
+				
+				consume_each(1);
+				return 1;
+			}
+		}
+	} /* namespace HsKA_DAB_plus */
 } /* namespace gr */
 

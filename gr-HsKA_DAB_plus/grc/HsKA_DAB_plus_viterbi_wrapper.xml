@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<block>
+  <name>Viterbi Wrapper</name>
+  <key>HsKA_DAB_plus_viterbi_wrapper</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <make>HsKA_DAB_plus.viterbi_wrapper($fsm_in, $fsm_out, $fsm_table, $init_state, $final_state, $dimension, $table)</make>
+  <param>
+    <name>FSM K</name>
+    <key>fsm_in</key>
+    <type>int</type>
+  </param>
+  <param>
+    <name>FSM N</name>
+    <key>fsm_out</key>
+    <type>int</type>
+  </param>
+  <param>
+    <name>FSM Table</name>
+    <key>fsm_table</key>
+    <type>int_vector</type>
+  </param>
+  <param>
+    <name>Initial State</name>
+    <key>init_state</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Final State</name>
+    <key>final_state</key>
+    <value>-1</value>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Dimensionality</name>
+    <key>dimension</key>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Constellation</name>
+    <key>table</key>
+    <type>real_vector</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+	
+  <sink>
+    <name>sync</name>
+    <type>byte</type>
+  </sink>
+  
+  <sink>
+    <name>k</name>
+    <type>int</type>
+  </sink>
+ 
+	<source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+
+  <source>
+    <name>sync</name>
+    <type>byte</type>
+  </source>
+  
+  <source>
+    <name>k</name>
+    <type>int</type>
+  </source>
+</block>

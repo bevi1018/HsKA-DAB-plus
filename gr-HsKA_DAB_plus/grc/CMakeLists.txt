@@ -25,5 +25,17 @@ install(FILES
     HsKA_DAB_plus_Remove_First_OFDM_Symbol.xml
     HsKA_DAB_plus_Frequency_Deinterleaver.xml
     HsKA_DAB_plus_Soft_Demapper.xml
-    HsKA_DAB_plus_Departitioning.xml DESTINATION share/gnuradio/grc/blocks
+    HsKA_DAB_plus_Departitioning.xml
+    HsKA_DAB_plus_unpuncture_fic.xml
+    HsKA_DAB_plus_FIC_Scrambler.xml
+    HsKA_DAB_plus_CRC16.xml
+    HsKA_DAB_plus_fib_decoder.xml
+    HsKA_DAB_plus_radio_gui.xml
+    HsKA_DAB_plus_time_deinterleaver.xml
+    HsKA_DAB_plus_unpuncture_msc.xml
+    HsKA_DAB_plus_viterbi_wrapper.xml
+    HsKA_DAB_plus_MSC_Scrambler.xml
+    HsKA_DAB_plus_firecode_checker.xml
+    HsKA_DAB_plus_reed_solomon_decoder.xml
+    HsKA_DAB_plus_MP4_decoder.xml DESTINATION share/gnuradio/grc/blocks
 )

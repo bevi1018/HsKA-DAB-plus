@@ -28,7 +28,7 @@ Projektarbeit Master
 --------------------------------------------------
 Informationen
 - Block: Departitioning
-- Beschreibung: 
+- Beschreibung: Dieser Block trennt den Fast Information Channel von dem Main Service Channel. Beim Main Service Channel wird nur der aktuell eingestellte Subchannel ausgegeben
 - Quellen: [1] ETSI Standard EN 300 401
 */
 
@@ -36,201 +36,200 @@ Informationen
 #include "config.h"
 #endif
 
-#include "Header_File.h"
-
 #include <gnuradio/io_signature.h>
 #include "Departitioning_impl.h"
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+#include <HsKA_DAB_plus/FIB_Info.h>
 
-	Departitioning::sptr
-	Departitioning::make(gr::database_module::shared_database *database, int vector_length)
+#define CU_SIZE 64
+
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
 	{
-	return gnuradio::get_initial_sptr(new Departitioning_impl(database, vector_length));
-	}
-
-	Departitioning_impl::Departitioning_impl(gr::database_module::shared_database *database, int vector_length)
-	: gr::block("Departitioning", gr::io_signature::make2(2, 2, 2*vector_length*sizeof(float), sizeof(byte)), gr::io_signature::makev(4, 4, boost::assign::list_of(vector_length*2*3/4*sizeof(float))(sizeof(byte))(sizeof(float))(sizeof(byte)))),
-	  m_database(database)
-	{
-		this->vector_length = vector_length;
-
-		write_index = 0;
-		remaining_fic_count = 0;
-		symbol_counter = 0;
-
-		sync_received = false;
-		is_first_cif = false;
-
-		cif_length = vector_length * 2 * 72 / 4; // 18 mal Symbollänge
-		fic_length = vector_length * 2 * 3 / 4;
-
-		block_buffer = new float[cif_length];
-		fic_buffer = new float[3 * fic_length]; // Einer der 4 FIC-Blöcke kann direkt ausgegeben werden
-
-		set_output_multiple(128 * CU_SIZE);
-	}
-
-	Departitioning_impl::~Departitioning_impl()
-	{
-		if(block_buffer)
+		Departitioning::sptr Departitioning::make(char *databaseID, int32_t vector_length, int32_t debug_enable)
 		{
-			delete [] block_buffer;
-			block_buffer = 0;
+			// Instanz des Blocks erzeugen und GnuRadio zur Verfügung stellen
+			return gnuradio::get_initial_sptr(new Departitioning_impl(databaseID, vector_length, debug_enable));
 		}
 
-		if(fic_buffer)
+		Departitioning_impl::Departitioning_impl(char *databaseID, int32_t vector_length, int32_t debug_enable)
+			: gr::block("Departitioning", 
+						gr::io_signature::make2(2, 2, 2 * vector_length * sizeof(float), sizeof(uint8_t)),
+						gr::io_signature::make3(3, 3, vector_length * 2 * 3 / 4 * sizeof(float), sizeof(float), sizeof(uint8_t))),
+			  m_database(shared_database::open_database(databaseID)),
+			  m_vector_length(vector_length),
+			  m_write_index(0),
+			  m_remaining_fic_count(0),
+			  m_symbol_counter(0),
+			  m_cif_length(vector_length * 2 * 72 / 4), // 18 mal Symbollänge
+			  m_fic_length(vector_length * 2 * 3 / 4),
+			  m_debug_enable(debug_enable)
 		{
-			delete [] fic_buffer;
-			fic_buffer = 0;
-		}
-	}
+			m_cif_buffer = new float[m_cif_length];
+			m_fic_buffer = new float[3 * m_fic_length]; // Einer der 4 FIC-Blöcke kann direkt ausgegeben werden
 
-	void
-	Departitioning_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-	{
-		for(int i = 0; i < ninput_items_required.size(); ++i)
-		{
-			ninput_items_required[i] = 1;
-		}
-	}
-
-	int
-	Departitioning_impl::general_work (int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
-	{
-	const float *in = (const float *) input_items[0];
-	const byte *sync_in = (const byte *) input_items[1];
-
-	float *fic_block_out = (float *) output_items[0];
-	byte *fic_block_sync = (byte *) output_items[1];
-	float *subch_out = (float *) output_items[2];
-	byte *subch_sync = (byte *) output_items[3];
-			
-	// Müssen noch gespeicherte FIC-Blöcke ausgegeben werden?
-	if(remaining_fic_count > 0)
-	{
-		int start_index = (3 - remaining_fic_count) * fic_length;
-
-		// 1 FIC-Block kopieren (da hier nur die Blöcke 2-4 ausgegeben werden ist sync immer 0)
-		memcpy(fic_block_out, &fic_buffer[start_index], fic_length * sizeof(float));
-		fic_block_sync[0] = 0;
-
-		remaining_fic_count--;
-
-		printf("FIC Block (%d)\n", (4 -remaining_fic_count));
-
-		// Signalisieren, dass 1 FIC-Block ausgegeben wurde.
-		produce(0, 1);
-		produce(1, 1);
-		return WORK_CALLED_PRODUCE;
-	}
-
-	// Ansonsten neue Daten verarbeiten
-	for(int i = 0; i < ninput_items[0]; ++i)
-	{
-		if(sync_in[i] != 0)
-		{
-			symbol_counter = 1;
-			write_index = 0;
-			remaining_fic_count = 0;
-			sync_received = true;
-			//printf("Sync received (%d)\n", (int)(sync_in[i]));
-		}
-		else if(!sync_received)
-			continue;
-		else
-		{
-			symbol_counter++;
+			set_min_output_buffer(416 * CU_SIZE * sizeof(float));
 		}
 
-		// 1 Symbol in den Block-Buffer kopieren
-		memcpy(&block_buffer[write_index*vector_length*2], &in[i*vector_length*2], vector_length*2*sizeof(float));
-		write_index++;
-
-		//printf("write_index: %d\n", write_index);
-		//printf("symbol_counter: %d\n", symbol_counter);
-
-		// Wenn die ersten 3 Symbole empfangen wurden -> FIC partitionieren
-		if(symbol_counter == 3)
+		Departitioning_impl::~Departitioning_impl()
 		{
-			// Die Blöcke 2-4 zwischenspeichern
-			memcpy(fic_buffer, &block_buffer[fic_length], 3 * fic_length * sizeof(float));
-			remaining_fic_count = 3;
-
-			// 1. FIC-Block kopieren (Sync ist 1)
-			memcpy(fic_block_out, block_buffer, fic_length * sizeof(float));
-			fic_block_sync[0] = 1;
-
-			// Write-Index zurücksetzen, damit der nachfolgende CIF-Block mit Index 0 startet
-			write_index = 0;
-
-			// Der Nach den FIC-Blöcken folgende CIF-Block ist der erste.
-			is_first_cif = true;
-
-			// Signalisieren, dass 1 FIC-Block ausgegeben wurde.
-			produce(0, 1);
-			produce(1, 1);
-
-			printf("FIC Block (1)\n");
-
-			// Signalisieren, dass i + 1 Symbole eingelesen wurden
-			consume(0, i + 1);
-			consume(1, i + 1);
-			return WORK_CALLED_PRODUCE;
-		}
-
-		// Wenn der Block-Buffer komplett gefüllt ist, kann ein Subchannel ausgegeben werden (symbol_counter ist >= 21)
-		if(write_index >= 18)
-		{
-			uint16_t start_address = 0;
-			uint16_t subchannel_size = 0;
-			uint32_t current_subchannel_id = 0;
-
-			SubChannelOrga subch_orga;
-			if(m_database->check_and_get_variable<uint32_t>(DB_SELECTED_SUBCHANNEL_ID, &current_subchannel_id))
+			// CIF-Speicher löschen
+			if(m_cif_buffer)
 			{
-				printf("Current Subchannel ID: %d\n", current_subchannel_id);
-				if(m_database->check_and_get_variable<SubChannelOrga>(DB_SUBCHANNEL_ORGA_ID(current_subchannel_id), &subch_orga))
+				delete [] m_cif_buffer;
+				m_cif_buffer = 0;
+			}
+
+			// FIC-Speicher löschen
+			if(m_fic_buffer)
+			{
+				delete [] m_fic_buffer;
+				m_fic_buffer = 0;
+			}
+		}
+
+		void Departitioning_impl::forecast (int32_t noutput_items, gr_vector_int &ninput_items_required)
+		{
+			// Es wird immer nur ein Symbol eingelesen
+			for(int32_t i = 0; i < ninput_items_required.size(); ++i)
+			{
+				ninput_items_required[i] = 1;
+			}
+		}
+
+		int32_t Departitioning_impl::general_work (int32_t noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
+		{
+			// Ein- und Ausgangsdaten zur einfacheren Handhabung casten
+			const float *in = (const float *) input_items[0];
+			const uint8_t *sync_in = (const uint8_t *) input_items[1];
+
+			float *fic_block_out = (float *) output_items[0];
+			float *subch_out = (float *) output_items[1];
+			uint8_t *subch_sync = (uint8_t *) output_items[2];
+			
+			static bool is_synced = false;
+
+			// Müssen noch gespeicherte FIC-Blöcke ausgegeben werden?
+			if(m_remaining_fic_count > 0)
+			{
+				int start_index = (3 - m_remaining_fic_count) * m_fic_length;
+
+				// 1 FIC-Block kopieren
+				memcpy(fic_block_out, &m_fic_buffer[start_index], m_fic_length * sizeof(float));
+
+				--m_remaining_fic_count;
+
+				if(m_debug_enable != 0)
+					printf("Departitioning: FIC Block (%d)\n", (4 - m_remaining_fic_count));
+
+				// Signalisieren, dass 1 FIC-Block ausgegeben wurde.
+				produce(0, 1);
+				return WORK_CALLED_PRODUCE;
+			}
+
+			// Ansonsten neue Daten verarbeiten
+			for(int i = 0; i < ninput_items[0]; ++i)
+			{
+				if(sync_in[i] != 0)
 				{
-					start_address = subch_orga.start_address;
-					subchannel_size = subch_orga.sub_channel_size;
+					m_symbol_counter = 1;
+					m_write_index = 0;
+					m_remaining_fic_count = 0;
+					
+					is_synced = true;
+					
+					if(m_debug_enable != 0)
+						printf("Departitioning: Sync received (%d)\n", (int)(sync_in[i]));
+				}
+				else if(!is_synced)
+					continue;
+				else
+				{
+					m_symbol_counter++;
+				}
 
-					// Den jeweiligen Subchannel des CIF-Blocks in des Ausgangsbuffer schreiben
-					memcpy(subch_out, &block_buffer[start_address * CU_SIZE], subchannel_size * CU_SIZE * sizeof(float));
+				// 1 Symbol in den Block-Buffer kopieren
+				memcpy(&m_cif_buffer[m_write_index * m_vector_length * 2], &in[i * m_vector_length * 2], m_vector_length * 2 * sizeof(float));
+				++m_write_index;
 
-					// Wenn dies der erste CIF-Block ist -> sync = 1
-					memset(subch_sync, 0, subchannel_size * CU_SIZE * sizeof(byte));
-					if(is_first_cif)
-						subch_sync[0] = 1;
-					else
-						subch_sync[0] = 0;
-					is_first_cif = false;
+				//printf("write_index: %d\n", write_index);
+				//printf("symbol_counter: %d\n", symbol_counter);
 
-					printf("Subchannel from CIF Block %d written.\n", (symbol_counter - 3) / 18);
+				// Wenn die ersten 3 Symbole empfangen wurden -> FIC partitionieren
+				if(m_symbol_counter == 3)
+				{
+					// Die Blöcke 2-4 zwischenspeichern
+					memcpy(m_fic_buffer, &m_cif_buffer[m_fic_length], 3 * m_fic_length * sizeof(float));
+					m_remaining_fic_count = 3;
 
-					// Signalisieren, dass 1 CIF-Block ausgegeben wurde.
-					produce(2, subchannel_size * CU_SIZE);
-					produce(3, subchannel_size * CU_SIZE);
+					// 1. FIC-Block kopieren
+					memcpy(fic_block_out, m_cif_buffer, m_fic_length * sizeof(float));
+
+					// Write-Index zurücksetzen, damit der nachfolgende CIF-Block mit Index 0 startet
+					m_write_index = 0;
+					
+					if(m_debug_enable != 0)
+						printf("Departitioning: FIC Block (1)\n");
+
+					// Signalisieren, dass 1 FIC-Block ausgegeben wurde.
+					produce(0, 1);
+
+					// Signalisieren, dass i + 1 Symbole eingelesen wurden
+					consume_each(i + 1);
+					return WORK_CALLED_PRODUCE;
+				}
+
+				// Wenn der Block-Buffer komplett gefüllt ist, kann ein Subchannel ausgegeben werden (symbol_counter ist >= 21)
+				if(m_write_index >= 18)
+				{
+					uint16_t start_address = 0;
+					uint16_t subchannel_size = 0;
+					uint32_t current_subchannel_id = 0;
+
+					SubChannelOrga subch_orga;
+					if(m_database->check_and_get_variable<uint32_t>(DB_SELECTED_SUBCHANNEL_ID, &current_subchannel_id))
+					{
+						if(m_debug_enable != 0)
+							printf("Current Subchannel ID: %d\n", current_subchannel_id);
+						
+						if(m_database->check_and_get_variable<SubChannelOrga>(DB_SUBCHANNEL_ORGA_ID(current_subchannel_id), &subch_orga))
+						{
+							start_address = subch_orga.start_address;
+							subchannel_size = subch_orga.sub_channel_size;
+							
+							if(m_debug_enable != 0)
+								printf("Subchannel Startaddress: 0x%04hX, Size: %hd CUs\n", start_address, subchannel_size);
+
+							// Den jeweiligen Subchannel des CIF-Blocks in des Ausgangsbuffer schreiben
+							memcpy(subch_out, &m_cif_buffer[start_address * CU_SIZE], subchannel_size * CU_SIZE * sizeof(float));
+
+							// Wenn dies der erste CIF-Block ist -> sync = 1
+							memset(subch_sync, 0, subchannel_size * CU_SIZE * sizeof(uint8_t));
+							subch_sync[0] = 1;
+
+							if(m_debug_enable != 0)
+								printf("Subchannel from CIF Block %d written.\n", (m_symbol_counter - 3) / 18);
+
+							// Signalisieren, dass 1 CIF-Block ausgegeben wurde.
+							produce(1, subchannel_size * CU_SIZE);
+							produce(2, subchannel_size * CU_SIZE);
+						}
+					}
+
+					// Write-Index zurücksetzen, damit der nachfolgende CIF-Block mit Index 0 startet
+					m_write_index = 0;
+
+					// Signalisieren, dass i + 1 Symbole eingelesen wurden
+					consume_each(i + 1);
+					return WORK_CALLED_PRODUCE;
 				}
 			}
 
-			// Write-Index zurücksetzen, damit der nachfolgende CIF-Block mit Index 0 startet
-			write_index = 0;
-
-			// Signalisieren, dass i + 1 Symbole eingelesen wurden
-			consume(0, i + 1);
-			consume(1, i + 1);
+			// Signalisieren, dass alle Symbole eingelesen wurden
+			consume_each(ninput_items[0]);
 			return WORK_CALLED_PRODUCE;
 		}
-	}
-
-	// Signalisieren, dass alle Symbole eingelesen wurden
-	consume(0, ninput_items[0]);
-	consume(1, ninput_items[0]);
-	return 0;
-	}
-
-  } /* namespace HsKA_DAB_plus */
+	} /* namespace HsKA_DAB_plus */
 } /* namespace gr */
 

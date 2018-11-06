@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<block>
+  <name>DAB+ Radio GUI</name>
+  <key>HsKA_DAB_plus_radio_gui</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <import>from PyQt4 import Qt</import>
+  <import>from gnuradio import qtgui</import>
+  <import>import sip</import>
+  <make>#set $win = 'self._%s_win'%$id
+HsKA_DAB_plus.radio_gui($database_id, $debug)
+
+class py_callback_$(id)(HsKA_DAB_plus.py_callback):
+    def set_py_callback(self, set_var_callback):
+      self.set_var_callback = set_var_callback
+    def call(self, value):
+      self.set_var_callback(value)
+    
+self.$(id)_callback = py_callback_$(id)()
+self.$(id)_callback.set_py_callback(self.set_$(center_frequency_var))
+self.$(id)_callback.__disown__();
+self.$(id).set_center_freq_callback(self.$(id)_callback)
+
+self._$(id)_win = sip.wrapinstance(self.$(id).pyqwidget(), Qt.QWidget)
+$(gui_hint()($win))</make>
+
+  <param>
+    <name>Database ID</name>
+    <key>database_id</key>
+    <type>string</type>
+  </param>
+	
+  <param>
+    <name>Debug enable</name>
+    <key>debug</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+  
+  <param>
+    <name>Frequency Variable</name>
+    <key>center_frequency_var</key>
+    <type>raw</type>
+  </param>
+  
+  <param>
+    <name>GUI Hint</name>
+    <key>gui_hint</key>
+    <value></value>
+    <type>gui_hint</type>
+    <hide>part</hide>
+  </param>
+  
+  <doc>
+The GUI hint can be used to position the widget within the application. \
+The hint is of the form [tab_id@tab_index]: [row, col, row_span, col_span]. \
+Both the tab specification and the grid position are optional.
+  </doc>
+</block>

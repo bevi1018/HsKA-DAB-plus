@@ -18,6 +18,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// Genauere Beschreibung in DQPSK_Demodulation_impl.h
 
 #ifndef INCLUDED_HSKA_DAB_PLUS_DQPSK_DEMODULATION_H
 #define INCLUDED_HSKA_DAB_PLUS_DQPSK_DEMODULATION_H
@@ -25,31 +26,24 @@
 #include <HsKA_DAB_plus/api.h>
 #include <gnuradio/block.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+namespace gr
+{
+	namespace HsKA_DAB_plus 
+	{
+		class HSKA_DAB_PLUS_API DQPSK_Demodulation : virtual public gr::block
+		{
+		public:
+			// Typdefinition fuer einen shared_ptr zu diesem Block
+			typedef boost::shared_ptr<DQPSK_Demodulation> sptr;
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup HsKA_DAB_plus
-     *
-     */
-    class HSKA_DAB_PLUS_API DQPSK_Demodulation : virtual public gr::block
-    {
-     public:
-      typedef boost::shared_ptr<DQPSK_Demodulation> sptr;
-
-      /*!
-       * \brief Return a shared_ptr to a new instance of HsKA_DAB_plus::DQPSK_Demodulation.
-       *
-       * To avoid accidental use of raw pointers, HsKA_DAB_plus::DQPSK_Demodulation's
-       * constructor is in a private implementation
-       * class. HsKA_DAB_plus::DQPSK_Demodulation::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make(int N, int fft_length);
-    };
-
-  } // namespace HsKA_DAB_plus
+			/**
+			* Konstruktor fuer diesen Block
+			* \param vector_length Anzahl der OFDM Untertraeger
+			* \param fft_length Laenge der FFT
+			*/
+			static sptr make(int vector_length, int fft_length);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_DQPSK_DEMODULATION_H */

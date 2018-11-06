@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /* 
- * Copyright 2018 <HsKA>.
+ * Copyright 2018 HsKA
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,31 +18,74 @@
  * Boston, MA 02110-1301, USA.
  */
 
+/*
+Hochschule Karlsruhe Technik u. Wirtschaft (HsKa)
+Projektarbeit Master
+- Projekt: DAB+ Empfänger mit Gnu Radio
+- Studenten: David Kohler, Vivian Becher
+- Professor: M. Litzenburger
+- Datum: 30.08.18
+--------------------------------------------------
+Informationen
+- Block: Frequency_Deinterleaver
+- Beschreibung: Vertauschen der Symbole über die Frequenzrichtung. Position des Unterträgers wird nach dem Muster in [1, S.110] neu geordnet.
+- Quellen: [1] ETSI Standard EN 300 401
+*/
+
 #ifndef INCLUDED_HSKA_DAB_PLUS_FREQUENCY_DEINTERLEAVER_IMPL_H
 #define INCLUDED_HSKA_DAB_PLUS_FREQUENCY_DEINTERLEAVER_IMPL_H
 
 #include <HsKA_DAB_plus/Frequency_Deinterleaver.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
-
-	class Frequency_Deinterleaver_impl : public Frequency_Deinterleaver
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
 	{
-	private:
-	int fft_length;
-	int vector_length;
+		class Frequency_Deinterleaver_impl : public Frequency_Deinterleaver
+		{
+		private:
+			int32_t m_fft_length;		///< Anzahl der OFDM-Untertraeger
+			int32_t m_vector_length;	///< Laenge der FFT
+
+		public:
+			/**
+			 * Konstruktor
+			 * \param vector_length Anzahl der OFDM-Untertraeger
+			 * \param fft_length Laenge der FFT
+			 */
+			Frequency_Deinterleaver_impl(int32_t vector_length, int32_t fft_length);
 			
-	public:
-	Frequency_Deinterleaver_impl(int N, int fft_length);
-	~Frequency_Deinterleaver_impl();
+			/**
+			 * Destruktor
+			 */
+			~Frequency_Deinterleaver_impl();
 
-	void process_single_vector(gr_complex const *in, gr_complex *out);
+			/**
+			 * Verarbeitet nur einen einzigen Datenvektor
+			 * \param in Eingangsvektor
+			 * \param out Ausgangsvektor
+			 */
+			void process_single_vector(gr_complex const *in, gr_complex *out);
 
-	void forecast (int noutput_items, gr_vector_int &ninput_items_required);
-	int general_work(int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items);
-	};
+			/**
+			* Funktion zur Vorhersage, wie viele Eingangsdaten am jeweiligen Port benoetigt werden, um noutput_items generieren zu koennen.
+			* Wichtig fuer den Scheduler in GnuRadio.
+			* \param noutput_items Gibt an, wieviele Ausgangsdaten erzeugt werden sollen.
+			* \param ninput_items_required Gibt an, wieviele Eingangsdaten am jeweilgen Port benoetigt werden. Wird von der Funktion befuellt.
+			*/
+			void forecast (int32_t noutput_items, gr_vector_int &ninput_items_required);
 
-  } // namespace HsKA_DAB_plus
+			/**
+			* Beinhaltet die eingentliche Funktionalitaet. Hier werden die Eingangsdaten verarbeitet und an den entsprechenden Ausgangsport ausgegeben.
+			* Wird von Scheduler in GnuRadio aufgerufen.
+			* \param noutput_items Gibt an, wieviele Ausgangsdaten erzeugt werden sollen.
+			* \param ninput_items Gibt an, wieviele Eingangsdaten am jeweiligen Eingangsport zur Verfuegung stehen.
+			* \param input_items Datenvektor fuer die Eingangsdaten
+			* \param output_items Datenvektor fuer die Ausgangsdaten
+			*/
+			int32_t general_work(int32_t noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_FREQUENCY_DEINTERLEAVER_IMPL_H */

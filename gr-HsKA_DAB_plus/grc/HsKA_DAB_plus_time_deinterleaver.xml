@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<block>
+  <name>Time Deinterleaver</name>
+  <key>HsKA_DAB_plus_time_deinterleaver</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <make>HsKA_DAB_plus.time_deinterleaver($vector_length)</make>
+
+  <param>
+    <name>Vector length</name>
+    <key>vector_length</key>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+
+  <sink>
+    <name>sync</name>
+    <type>byte</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+
+  <source>
+    <name>sync</name>
+    <type>byte</type>
+  </source>
+</block>

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <block>
-	<name>OFDM_Symbol_Synchronisation</name>
+	<name>OFDM Symbol Synchronisation</name>
 	<key>HsKA_DAB_plus_OFDM_Symbol_Synchronisation</key>
-	<category>[HsKA_DAB_plus]</category>
+	<category>[HsKA DAB+]</category>
 	<import>import HsKA_DAB_plus</import>
-	<make>HsKA_DAB_plus.OFDM_Symbol_Synchronisation($N, $L, $SNR, $Averaging)</make>
+	<make>HsKA_DAB_plus.OFDM_Symbol_Synchronisation($N, $L, $SNR, $Averaging, $DEBUG_ON)</make>
 
 <param>
 	<name>FFT Length</name>
@@ -32,7 +32,14 @@
 	<key>Averaging</key>
 	<value>8</value>  
 	<type>int</type>
-</param>	
+</param>
+	
+<param>
+	<name>Debug Enable</name>
+	<key>DEBUG_ON</key>
+	<value>0</value>  
+	<type>int</type>
+</param>
 
 <sink>
 	<name>in</name>

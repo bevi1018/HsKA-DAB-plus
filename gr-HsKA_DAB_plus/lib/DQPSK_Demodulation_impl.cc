@@ -38,71 +38,87 @@ korrekte Relation muss ein Symbol korrigiert werden, da ansonsten die Phase bei 
 #include "config.h"
 #endif
 
-#include "Header_File.h"
-
 #include <gnuradio/io_signature.h>
 #include "DQPSK_Demodulation_impl.h"
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+#include <gnuradio/expj.h>
 
-	DQPSK_Demodulation::sptr
-	DQPSK_Demodulation::make(int N, int fft_length)
+#include <boost/math/constants/constants.hpp>
+
+#define PI boost::math::constants::pi<float>()
+
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
 	{
-	return gnuradio::get_initial_sptr(new DQPSK_Demodulation_impl(N, fft_length));
-	}
-
-	DQPSK_Demodulation_impl::DQPSK_Demodulation_impl(int N, int fft_length)
-	: gr::block("DQPSK_Demodulation", gr::io_signature::make3(3, 3, N*sizeof(gr_complex), sizeof(short), sizeof(byte)), gr::io_signature::make2(2, 2, N*sizeof(gr_complex), sizeof(byte)))
-	{
-		vector_length = N; // Anzahl der Unterträger
-		this ->fft_length = fft_length;
-		last_sample = new gr_complex[N]; // Speicherung des letzten OFDM Symbols
-
-		for(int i = 0; i < N; ++i)
+		DQPSK_Demodulation::sptr DQPSK_Demodulation::make(int vector_length, int fft_length)
 		{
-			last_sample[i] = gr_complex(1, 0);
+			// Instanz des Blocks erzeugen und GnuRadio zur Verfügung stellen
+			return gnuradio::get_initial_sptr(new DQPSK_Demodulation_impl(vector_length, fft_length));
 		}
-	}
 
-	DQPSK_Demodulation_impl::~DQPSK_Demodulation_impl()
-	{
-	}
+		DQPSK_Demodulation_impl::DQPSK_Demodulation_impl(int vector_length, int fft_length)
+			: gr::block("DQPSK_Demodulation", 
+						gr::io_signature::make3(3, 3, vector_length * sizeof(gr_complex), sizeof(short), sizeof(uint8_t)),
+						gr::io_signature::make2(2, 2, vector_length * sizeof(gr_complex), sizeof(uint8_t))),
+			  m_vector_length(vector_length),
+			  m_last_theta(0),
+			  m_fft_length(fft_length)
+		{			
+			// Array erzeugen, welches das vorherige OFDM-Symbol beinhaltet
+			m_last_sample = new gr_complex[vector_length];
+			for(int i = 0; i < vector_length; ++i)
+			{
+				// Alle Samples mit 1 initialisieren.
+				m_last_sample[i] = gr_complex(1, 0);
+			}
+		}
 
-	void
-	DQPSK_Demodulation_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-	{
-		for(int i = 0; i < ninput_items_required.size(); ++i)
+		DQPSK_Demodulation_impl::~DQPSK_Demodulation_impl()
 		{
-			ninput_items_required[i] = noutput_items;
+			// Array für das vorherige OFDM-Symbol löschen
+			if(m_last_sample)
+			{
+				delete [] m_last_sample;
+				m_last_sample = 0;
+			}
 		}
-	}
 
-	int
-	DQPSK_Demodulation_impl::general_work (int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
-	{
-	const gr_complex *in = (const gr_complex *) input_items[0];
-	const short *theta_in = (const short *) input_items[1];
-	const byte *sync_in = (const byte *) input_items[2];
-	gr_complex *out = (gr_complex *) output_items[0];
-	byte *sync_out = (byte *) output_items[1];
+		void DQPSK_Demodulation_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
+		{
+			// Es werden genauso viele Daten ausgegeben, wie eingelesen werden.
+			for(int i = 0; i < ninput_items_required.size(); ++i)
+			{
+				ninput_items_required[i] = noutput_items;
+			}
+		}
 
-	static short last_theta = 0;
+		int DQPSK_Demodulation_impl::general_work (int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
+		{
+			// Ein- und Ausgangsdaten zur einfacheren Handhabung casten
+			const gr_complex *in = (const gr_complex *) input_items[0];
+			const short *theta_in = (const short *) input_items[1];
+			const uint8_t *sync_in = (const uint8_t *) input_items[2];
+			gr_complex *out = (gr_complex *) output_items[0];
+			uint8_t *sync_out = (uint8_t *) output_items[1];
 
-	for(int i = 0; i < vector_length; ++i)
-	{
-		// Demodulation durch Multiplikation des komplex konjugierten letzten Symbols auf demselben Unterträger 
-		// und Phasenkorrektur pro Unterträger, falls der Symbolanfang sich geändert hat
-		out[i] = in[i] * conj(last_sample[i])*gr_expj(-2*PI*(i-vector_length/2)*(float)(theta_in[0]-last_theta)/(float)(fft_length));
-		last_sample[i] = in[i];
-	}
-	last_theta = theta_in[0];
-	sync_out[0] = sync_in[0];
+			for(int i = 0; i < m_vector_length; ++i)
+			{
+				// Demodulation durch Multiplikation des komplex konjugierten letzten Symbols auf demselben Unterträger 
+				// und Phasenkorrektur pro Unterträger, falls der Symbolanfang sich geändert hat
+				//if(i >= (m_vector_length / 2))
+				//	out[i] = in[i] * conj(m_last_sample[i]) * gr_expj(-2.0 * PI * (i + 1 - m_vector_length / 2) * (float)(theta_in[0] - m_last_theta) / (float)(m_fft_length));	
+				//else
+					out[i] = in[i] * conj(m_last_sample[i]) * gr_expj(-2.0 * PI * (i - m_vector_length / 2) * (float)(theta_in[0] - m_last_theta) / (float)(m_fft_length));
+				m_last_sample[i] = in[i];
+			}
 
-	consume_each (1);
-	return 1;
-	}
+			m_last_theta = theta_in[0];
+			sync_out[0] = sync_in[0];
 
-  } /* namespace HsKA_DAB_plus */
+			consume_each(1);
+			return 1;
+		}
+	} /* namespace HsKA_DAB_plus */
 } /* namespace gr */
 

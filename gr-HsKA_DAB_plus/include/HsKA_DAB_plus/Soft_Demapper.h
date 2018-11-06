@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /* 
- * Copyright 2018 <+YOU OR YOUR COMPANY+>.
+ * Copyright 2018 HsKA
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// Genauere Beschreibung in Soft_Demapper_impl.h
 
 #ifndef INCLUDED_HSKA_DAB_PLUS_SOFT_DEMAPPER_H
 #define INCLUDED_HSKA_DAB_PLUS_SOFT_DEMAPPER_H
@@ -25,31 +26,25 @@
 #include <HsKA_DAB_plus/api.h>
 #include <gnuradio/block.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+#include <stdint.h>
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup HsKA_DAB_plus
-     *
-     */
-    class HSKA_DAB_PLUS_API Soft_Demapper : virtual public gr::block
-    {
-     public:
-      typedef boost::shared_ptr<Soft_Demapper> sptr;
-
-      /*!
-       * \brief Return a shared_ptr to a new instance of HsKA_DAB_plus::Soft_Demapper.
-       *
-       * To avoid accidental use of raw pointers, HsKA_DAB_plus::Soft_Demapper's
-       * constructor is in a private implementation
-       * class. HsKA_DAB_plus::Soft_Demapper::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make(int vector_length);
-    };
-
-  } // namespace HsKA_DAB_plus
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
+	{
+		class HSKA_DAB_PLUS_API Soft_Demapper : virtual public gr::block
+		{
+		public:
+			// Typdefinition fuer einen shared_ptr zu diesem Block
+			typedef boost::shared_ptr<Soft_Demapper> sptr;
+			
+			/**
+			 * Konstruktor fuer diesen Block
+			 * \param vector_length Anzahl der OFDM Untertraeger
+ 			 */
+			static sptr make(int32_t vector_length);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_SOFT_DEMAPPER_H */

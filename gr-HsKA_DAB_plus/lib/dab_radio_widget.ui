@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dab_radio_widget</class>
+ <widget class="QWidget" name="dab_radio_widget">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>595</width>
+    <height>419</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DAB+ Radio</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget #dab_radio_widget
+{
+	background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #002, stop:0.5 #006, stop:1 #003);
+}
+
+QLabel
+{
+	color: #FFF;
+}
+
+QGroupBox 
+{
+	border: 2px solid #DDD;
+	border-radius: 9px;
+	margin-top: 0.5em;
+}
+
+QGroupBox::title 
+{
+	color: #FFF;
+	subcontrol-origin: margin;
+	left: 10px;
+	padding: 0 3px 0 3px;
+}
+
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="vertical_layout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="sender_settings">
+     <property name="title">
+      <string>Sender Settings</string>
+     </property>
+     <layout class="QGridLayout" name="sender_settings_layout" columnstretch="1,2">
+      <item row="0" column="1">
+       <widget class="QDoubleSpinBox" name="center_frequency">
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::UpDownArrows</enum>
+        </property>
+        <property name="keyboardTracking">
+         <bool>false</bool>
+        </property>
+        <property name="suffix">
+         <string> MHz</string>
+        </property>
+        <property name="decimals">
+         <number>3</number>
+        </property>
+        <property name="minimum">
+         <double>150.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>300.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>218.614000000000004</double>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="center_frequency_label">
+        <property name="text">
+         <string>Center Frequency</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="available_sender"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="available_sender_label">
+        <property name="text">
+         <string>Current Sender</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="ensemble_name_label">
+        <property name="text">
+         <string>Ensemble Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="ensemble_name">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="service_count_label">
+        <property name="text">
+         <string>Service Count</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="service_count">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="sender_info">
+     <property name="title">
+      <string>Sender Info</string>
+     </property>
+     <layout class="QGridLayout" name="sender_info_layout" columnstretch="1,2">
+      <item row="0" column="1">
+       <widget class="QLabel" name="country">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="country_label">
+        <property name="text">
+         <string>Country</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="time_label">
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="time">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="date_label">
+        <property name="text">
+         <string>Date</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="date">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="program_type_label">
+        <property name="text">
+         <string>Program Type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="program_type">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="now_playing">
+     <property name="title">
+      <string>Now Playing</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" columnstretch="1,2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="title_label">
+        <property name="text">
+         <string>Title</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="title">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="interpret_label">
+        <property name="text">
+         <string>Interpret</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="interpret">
+        <property name="text">
+         <string>--</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="vertical_space">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

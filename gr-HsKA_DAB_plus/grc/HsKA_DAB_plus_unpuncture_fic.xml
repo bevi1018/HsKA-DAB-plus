@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<block>
+  <name>Unpuncture FIC</name>
+  <key>HsKA_DAB_plus_unpuncture_fic</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <make>HsKA_DAB_plus.unpuncture_fic($vector_length)</make>
+  
+  <param>
+    <name>Vector Length</name>
+    <key>vector_length</key>
+	<value>1536</value>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+	<vlen>$vector_length*2*3/4</vlen>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>

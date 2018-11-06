@@ -18,6 +18,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// Genauere Beschreibung in Departitioning_impl.h
 
 #ifndef INCLUDED_HSKA_DAB_PLUS_DEPARTITIONING_H
 #define INCLUDED_HSKA_DAB_PLUS_DEPARTITIONING_H
@@ -25,31 +26,28 @@
 #include <HsKA_DAB_plus/api.h>
 #include <gnuradio/block.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+#include <stdint.h>
+#include <HsKA_DAB_plus/shared_database.h>
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup HsKA_DAB_plus
-     *
-     */
-    class HSKA_DAB_PLUS_API Departitioning : virtual public gr::block
-    {
-     public:
-      typedef boost::shared_ptr<Departitioning> sptr;
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
+	{
+		class HSKA_DAB_PLUS_API Departitioning : virtual public gr::block
+		{
+		public:
+			// Typdefinition fuer einen shared_ptr zu diesem Block
+			typedef boost::shared_ptr<Departitioning> sptr;
 
-      /*!
-       * \brief Return a shared_ptr to a new instance of HsKA_DAB_plus::Departitioning.
-       *
-       * To avoid accidental use of raw pointers, HsKA_DAB_plus::Departitioning's
-       * constructor is in a private implementation
-       * class. HsKA_DAB_plus::Departitioning::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make(gr::database_module::shared_database *database, int vector_length);
-    };
-
-  } // namespace HsKA_DAB_plus
+			/**
+			 * Konstruktor fuer diesen Block
+			 * \param databaseID ID der Datenbank, von der die eingestellte Subchannel ID gelesen werden kann (DB_SELECTED_SUBCHANNEL_ID)
+			 * \param vector_length Anzahl der OFDM Untertraeger
+			 * \param debug_enable 0 deaktiviert die Debugausgabe, sonst werden Debugdaten ausgegeben
+ 			 */
+			static sptr make(char *databaseID, int32_t vector_length, int32_t debug_enable);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_DEPARTITIONING_H */

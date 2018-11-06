@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus
+CMAKE_SOURCE_DIR = /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build
+CMAKE_BINARY_DIR = /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build
 
 # Utility rule file for uninstall.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build
 include CMakeFiles/uninstall.dir/progress.make
 
 CMakeFiles/uninstall:
-	/usr/bin/cmake -P /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/cmake_uninstall.cmake
+	/usr/bin/cmake -P /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/cmake_uninstall.cmake
 
 uninstall: CMakeFiles/uninstall
 uninstall: CMakeFiles/uninstall.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/build/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/build/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

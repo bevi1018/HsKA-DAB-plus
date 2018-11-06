@@ -29,5 +29,17 @@ install(FILES
     Remove_First_OFDM_Symbol.h
     Frequency_Deinterleaver.h
     Soft_Demapper.h
-    Departitioning.h DESTINATION include/HsKA_DAB_plus
+    Departitioning.h
+    unpuncture_fic.h
+    FIC_Scrambler.h
+    CRC16.h
+    fib_decoder.h
+    radio_gui.h
+    time_deinterleaver.h
+    unpuncture_msc.h
+    viterbi_wrapper.h
+    MSC_Scrambler.h
+    firecode_checker.h
+    reed_solomon_decoder.h
+    MP4_decoder.h DESTINATION include/HsKA_DAB_plus
 )

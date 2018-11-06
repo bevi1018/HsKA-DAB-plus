@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <block>
-	<name>Remove_First_OFDM_Symbol</name>
+	<name>Remove First OFDM Symbol</name>
 	<key>HsKA_DAB_plus_Remove_First_OFDM_Symbol</key>
-	<category>[HsKA_DAB_plus]</category>
+	<category>[HsKA DAB+]</category>
 	<import>import HsKA_DAB_plus</import>
 	<make>HsKA_DAB_plus.Remove_First_OFDM_Symbol($vector_length)</make>
 

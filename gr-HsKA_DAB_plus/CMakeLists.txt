@@ -68,7 +68,7 @@ endif()
 ########################################################################
 if(CMAKE_COMPILER_IS_GNUCXX AND NOT WIN32)
     #http://gcc.gnu.org/wiki/Visibility
-    add_definitions(-fvisibility=hidden)
+    #add_definitions(-fvisibility=hidden)
 endif()
 
 ########################################################################
@@ -91,6 +91,25 @@ find_package(Boost "1.35" COMPONENTS filesystem system)
 if(NOT Boost_FOUND)
     message(FATAL_ERROR "Boost required to compile HsKA_DAB_plus")
 endif()
+
+########################################################################
+# QT and Python Packages
+########################################################################
+find_package(Qt4 REQUIRED )
+include(${QT_USE_FILE})
+find_package(PythonLibs 2)
+
+########################################################################
+# Find FAAD
+########################################################################
+find_package(Faad REQUIRED)
+if (NOT FAAD_FOUND )
+    message(FATAL_ERROR "please install libfaad")
+else()
+    message(STATUS "FAAD found")
+    message(STATUS "${FAAD_LIBRARIES}")
+    message(STATUS "${FAAD_INCLUDE_DIR}")
+endif ()
 
 ########################################################################
 # Install directories
@@ -139,7 +158,7 @@ find_package(Doxygen)
 # components required to the list of GR_REQUIRED_COMPONENTS (in all
 # caps such as FILTER or FFT) and change the version to the minimum
 # API compatible version required.
-set(GR_REQUIRED_COMPONENTS RUNTIME)
+set(GR_REQUIRED_COMPONENTS RUNTIME TRELLIS) # Viterbi-Wrapper
 find_package(Gnuradio "3.7.2" REQUIRED)
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 include(GrVersion)
@@ -168,6 +187,8 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${CPPUNIT_INCLUDE_DIRS}
     ${GNURADIO_ALL_INCLUDE_DIRS}
+    ${PYTHON_INCLUDE_DIRS} # QT Relevant
+    ${FAAD_INCLUDE_DIRS} # MP4 AAC Decoder
 )
 
 link_directories(

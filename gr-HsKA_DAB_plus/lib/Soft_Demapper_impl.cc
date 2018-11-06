@@ -36,55 +36,59 @@ Informationen
 #include "config.h"
 #endif
 
-#include "Header_File.h"
-
 #include <gnuradio/io_signature.h>
 #include "Soft_Demapper_impl.h"
 
-namespace gr {
-  namespace HsKA_DAB_plus {
-
-	Soft_Demapper::sptr
-	Soft_Demapper::make(int vector_length)
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
 	{
-	return gnuradio::get_initial_sptr(new Soft_Demapper_impl(vector_length));
-	}
-
-	Soft_Demapper_impl::Soft_Demapper_impl(int vector_length)
-	: gr::block("Soft_Demapper", gr::io_signature::make(1, 1, vector_length*sizeof(gr_complex)), gr::io_signature::make(1, 1, 2*vector_length*sizeof(gr_complex)))
-	{
-		this->vector_length = vector_length;
-	}
-
-	Soft_Demapper_impl::~Soft_Demapper_impl()
-	{
-	}
-
-	void
-	Soft_Demapper_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
-	{
-		for(int i = 0; i < ninput_items_required.size(); ++i)
+		Soft_Demapper::sptr Soft_Demapper::make(int32_t vector_length)
 		{
-			ninput_items_required[i] = noutput_items;
+			// Instanz des Blocks erzeugen und GnuRadio zur Verfügung stellen
+			return gnuradio::get_initial_sptr(new Soft_Demapper_impl(vector_length));
 		}
-	}
 
-	int
-	Soft_Demapper_impl::general_work (int noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
-	{
-	const gr_complex *in = (const gr_complex *) input_items[0];
-	float *out = (float *) output_items[0];
+		Soft_Demapper_impl::Soft_Demapper_impl(int32_t vector_length)
+			: gr::block("Soft_Demapper", 
+						gr::io_signature::make(1, 1, vector_length * sizeof(gr_complex)),
+						gr::io_signature::make(1, 1, 2 * vector_length * sizeof(float))),
+			  m_vector_length(vector_length)
+		{			
+		}
 
-	for(int i = 0; i < vector_length; ++i)
-	{
-		out[i] = in[i].real();
-		out[i + vector_length] = in[i].imag();
-	}
+		Soft_Demapper_impl::~Soft_Demapper_impl()
+		{
+		}
 
-	consume_each (1);
-	return 1;
-	}
+		void Soft_Demapper_impl::forecast (int32_t noutput_items, gr_vector_int &ninput_items_required)
+		{
+			// Es werden genauso viele Daten ausgegeben, wie eingelesen werden.
+			for(int32_t i = 0; i < ninput_items_required.size(); ++i)
+			{
+				ninput_items_required[i] = noutput_items;
+			}
+		}
 
-  } /* namespace HsKA_DAB_plus */
+		int32_t Soft_Demapper_impl::general_work (int32_t noutput_items, gr_vector_int &ninput_items, gr_vector_const_void_star &input_items, gr_vector_void_star &output_items)
+		{
+			// Ein- und Ausgangsdaten zur einfacheren Handhabung casten
+			const gr_complex *in	= (const gr_complex *) input_items[0];
+			float *out				= (float *) output_items[0];
+
+			for(int32_t i = 0; i < m_vector_length; ++i)
+			{
+				// Zuerst kommen die Realteile, dann die Imaginärteile
+				out[i]						= in[i].real();
+				out[i + m_vector_length]	= in[i].imag();
+			}
+
+			// Es wird nur ein Vektor eingelesen
+			consume_each(1);
+			
+			// Es wird nur ein Vektor ausgegeben
+			return 1;
+		}
+	} /* namespace HsKA_DAB_plus */
 } /* namespace gr */
 

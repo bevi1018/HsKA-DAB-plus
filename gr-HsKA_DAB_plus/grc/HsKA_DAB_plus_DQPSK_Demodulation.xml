@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <block>
-<name>DQPSK_Demodulation</name>
+<name>DQPSK Demodulation</name>
 <key>HsKA_DAB_plus_DQPSK_Demodulation</key>
-<category>[HsKA_DAB_plus]</category>
+<category>[HsKA DAB+]</category>
 <import>import HsKA_DAB_plus</import>
 <make>HsKA_DAB_plus.DQPSK_Demodulation($N, $fft_length)</make>
 

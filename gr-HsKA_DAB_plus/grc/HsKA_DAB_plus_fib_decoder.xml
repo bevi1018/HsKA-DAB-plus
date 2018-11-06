@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<block>
+  <name>FIB Decoder</name>
+  <key>HsKA_DAB_plus_fib_decoder</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <make>HsKA_DAB_plus.fib_decoder($databaseID, $DEBUG_ON)</make>
+
+  <param>
+    <name>Database ID</name>
+    <key>databaseID</key>
+    <type>string</type>
+  </param>
+
+  <param>
+    <name>Debug enable</name>
+    <key>DEBUG_ON</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+    <vlen>32</vlen>
+  </sink>
+</block>

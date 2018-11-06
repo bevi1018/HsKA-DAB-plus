@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /* 
- * Copyright 2018 <+YOU OR YOUR COMPANY+>.
+ * Copyright 2018 HsKA
  * 
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+// Genauere Beschreibung in OFDM_Symbol_Synchronisation_impl.h
 
 #ifndef INCLUDED_HSKA_DAB_PLUS_OFDM_SYMBOL_SYNCHRONISATION_H
 #define INCLUDED_HSKA_DAB_PLUS_OFDM_SYMBOL_SYNCHRONISATION_H
@@ -25,31 +26,29 @@
 #include <HsKA_DAB_plus/api.h>
 #include <gnuradio/block.h>
 
-namespace gr {
-  namespace HsKA_DAB_plus {
+#include <stdint.h>
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup HsKA_DAB_plus
-     *
-     */
-    class HSKA_DAB_PLUS_API OFDM_Symbol_Synchronisation : virtual public gr::block
-    {
-     public:
-      typedef boost::shared_ptr<OFDM_Symbol_Synchronisation> sptr;
+namespace gr 
+{
+	namespace HsKA_DAB_plus 
+	{
+		class HSKA_DAB_PLUS_API OFDM_Symbol_Synchronisation : virtual public gr::block
+		{
+		public:
+			// Typdefinition fuer einen shared_ptr zu diesem Block
+			typedef boost::shared_ptr<OFDM_Symbol_Synchronisation> sptr;
 
-      /*!
-       * \brief Return a shared_ptr to a new instance of HsKA_DAB_plus::OFDM_Symbol_Synchronisation.
-       *
-       * To avoid accidental use of raw pointers, HsKA_DAB_plus::OFDM_Symbol_Synchronisation's
-       * constructor is in a private implementation
-       * class. HsKA_DAB_plus::OFDM_Symbol_Synchronisation::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make(int N, int L, float SNR, int Averaging);
-    };
-
-  } // namespace HsKA_DAB_plus
+			/**
+			 * Konstruktor fuer diesen Block
+			 * \param N Symboldauer in Samples (Ohne Guardintervall)
+			 * \param L Dauer des Guardintervalls in Samples
+			 * \param SNR Ungefaehres SNR des Signals
+			 * \param average_count Anzahl der Werte ueber die Epsilon und Theta gemittelt wird
+			 * \param debug_enable 0 deaktiviert die Debugausgabe; Sonst ist die Debugausgabe aktiv
+			 */
+			static sptr make(int32_t N, int32_t L, float SNR, int32_t average_count, int32_t debug_enable);
+		};
+	} // namespace HsKA_DAB_plus
 } // namespace gr
 
 #endif /* INCLUDED_HSKA_DAB_PLUS_OFDM_SYMBOL_SYNCHRONISATION_H */

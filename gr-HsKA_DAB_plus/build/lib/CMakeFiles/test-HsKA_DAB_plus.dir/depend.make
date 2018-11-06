@@ -3,7 +3,11 @@
 
 lib/CMakeFiles/test-HsKA_DAB_plus.dir/qa_HsKA_DAB_plus.cc.o: ../lib/qa_HsKA_DAB_plus.cc
 lib/CMakeFiles/test-HsKA_DAB_plus.dir/qa_HsKA_DAB_plus.cc.o: ../lib/qa_HsKA_DAB_plus.h
+lib/CMakeFiles/test-HsKA_DAB_plus.dir/qa_HsKA_DAB_plus.cc.o: /home/gnuradiouser/gnuradio/installation/default/include/gnuradio/attributes.h
 
 lib/CMakeFiles/test-HsKA_DAB_plus.dir/test_HsKA_DAB_plus.cc.o: ../lib/qa_HsKA_DAB_plus.h
 lib/CMakeFiles/test-HsKA_DAB_plus.dir/test_HsKA_DAB_plus.cc.o: ../lib/test_HsKA_DAB_plus.cc
+lib/CMakeFiles/test-HsKA_DAB_plus.dir/test_HsKA_DAB_plus.cc.o: /home/gnuradiouser/gnuradio/installation/default/include/gnuradio/api.h
+lib/CMakeFiles/test-HsKA_DAB_plus.dir/test_HsKA_DAB_plus.cc.o: /home/gnuradiouser/gnuradio/installation/default/include/gnuradio/attributes.h
+lib/CMakeFiles/test-HsKA_DAB_plus.dir/test_HsKA_DAB_plus.cc.o: /home/gnuradiouser/gnuradio/installation/default/include/gnuradio/unittests.h
 

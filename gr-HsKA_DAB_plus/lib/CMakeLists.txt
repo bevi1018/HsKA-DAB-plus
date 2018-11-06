@@ -25,7 +25,19 @@ include(GrPlatform) #define LIB_SUFFIX
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 
+########################################################################
+# Set QT generation stuff
+########################################################################
+set(dab_radio_gui_moc_hdrs
+    dab_radio_widget.h
+)
+
+QT4_WRAP_CPP(dab_radio_gui_moc_srcs ${dab_radio_gui_moc_hdrs})
+QT4_WRAP_UI(dab_radio_ui_hdrs dab_radio_widget.ui)
+
 list(APPEND HsKA_DAB_plus_sources
+    ${dab_radio_gui_moc_srcs}
+    ${dab_radio_ui_hdrs}
     Super_Frame_Synchronisation_impl.cc
     OFDM_Symbol_Synchronisation_impl.cc
     OFDM_coarse_frequency_correction_impl.cc
@@ -34,6 +46,27 @@ list(APPEND HsKA_DAB_plus_sources
     Frequency_Deinterleaver_impl.cc
     Soft_Demapper_impl.cc
     Departitioning_impl.cc
+    shared_database.cc
+    unpuncture_fic_impl.cc
+    FIC_Scrambler_impl.cc
+    CRC16_impl.cc
+    fib_decoder_impl.cc
+    FIB_Info.cc
+    radio_gui.cc
+    py_callback.cc
+    country_name.cc
+    radio_gui.cc
+    dab_radio_widget.cc
+    time_deinterleaver_impl.cc
+    unpuncture_msc_impl.cc
+    viterbi_wrapper_impl.cc
+    MSC_Scrambler_impl.cc
+    firecode_checker_impl.cc
+    reed_solomon_decoder_impl.cc
+    fec/decode_rs_char.c
+    fec/encode_rs_char.c
+    fec/init_rs_char.c
+    MP4_decoder_impl.cc
 )
 
 set(HsKA_DAB_plus_sources "${HsKA_DAB_plus_sources}" PARENT_SCOPE)
@@ -43,7 +76,7 @@ if(NOT HsKA_DAB_plus_sources)
 endif(NOT HsKA_DAB_plus_sources)
 
 add_library(gnuradio-HsKA_DAB_plus SHARED ${HsKA_DAB_plus_sources})
-target_link_libraries(gnuradio-HsKA_DAB_plus ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES})
+target_link_libraries(gnuradio-HsKA_DAB_plus ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES} ${QT_LIBRARIES} ${PYTHON_LIBRARIES} ${FAAD_LIBRARIES})
 set_target_properties(gnuradio-HsKA_DAB_plus PROPERTIES DEFINE_SYMBOL "gnuradio_HsKA_DAB_plus_EXPORTS")
 
 if(APPLE)

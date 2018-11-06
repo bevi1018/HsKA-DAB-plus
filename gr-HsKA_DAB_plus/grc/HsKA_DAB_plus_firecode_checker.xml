@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block>
+  <name>Firecode Checker</name>
+  <key>HsKA_DAB_plus_firecode_checker</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <make>HsKA_DAB_plus.firecode_checker($debug_on)</make>
+
+<param>
+	<name>Debug Enable</name>
+	<key>debug_on</key>
+	<value>0</value>
+	<type>int</type>
+</param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+
+  <sink>
+    <name>sync</name>
+    <type>byte</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+
+  <source>
+    <name>sync</name>
+    <type>byte</type>
+  </source>
+</block>

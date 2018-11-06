@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<block>
+  <name>CRC16</name>
+  <key>HsKA_DAB_plus_CRC16</key>
+  <category>[HsKA DAB+]</category>
+  <import>import HsKA_DAB_plus</import>
+  <make>HsKA_DAB_plus.CRC16($polynom, $length, $debug_on)</make>
+	
+  <param>
+    <name>Polynom</name>
+    <key>polynom</key>
+	<value>0x1021</value>
+    <type>int</type>
+  </param>
+	
+  <param>
+    <name>Länge</name>
+    <key>length</key>
+    <value>32</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Debug enable</name>
+    <key>debug_on</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+	
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+    <vlen>$length</vlen>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>byte</type>
+    <vlen>$length</vlen>
+  </source>
+</block>

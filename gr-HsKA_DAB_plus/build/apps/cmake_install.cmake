@@ -1,8 +1,8 @@
-# Install script for directory: /home/gnuradiouser/gnuradio/HsKA-DAB+/gr-HsKA_DAB_plus/apps
+# Install script for directory: /home/gnuradiouser/gnuradio/HsKA-DAB-plus/gr-HsKA_DAB_plus/apps
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "/home/gnuradiouser/gnuradio/installation/default")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <block>
-	<name>Super_Frame_Synchronisation</name>
+	<name>Super Frame Synchronisation</name>
 	<key>HsKA_DAB_plus_Super_Frame_Synchronisation</key>
-	<category>[HsKA_DAB_plus]</category>
+	<category>[HsKA DAB+]</category>
 	<import>import HsKA_DAB_plus</import>
-	<make>HsKA_DAB_plus.Super_Frame_Synchronisation($T_NULL, $LOOK_AHEAD)</make>
+	<make>HsKA_DAB_plus.Super_Frame_Synchronisation($T_NULL, $LOOK_AHEAD, $DEBUG_ON)</make>
 
 <param>
 	<name>NULL Symbol Duration</name>
@@ -14,9 +14,16 @@
 </param>
 	
 <param>
-	<name>LOOK_AHEAD</name>
+	<name>Look Ahead</name>
 	<key>LOOK_AHEAD</key>
 	<value>10</value>
+	<type>int</type>
+</param>
+	
+<param>
+	<name>Debug enable</name>
+	<key>DEBUG_ON</key>
+	<value>0</value>
 	<type>int</type>
 </param>
 
