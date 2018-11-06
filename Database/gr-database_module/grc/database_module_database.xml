@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<block>
-  <name>DAB+ Database</name>
-  <key>database_module_database</key>
-  <category>[DAB+]</category>
-  <import>import database_module</import>
-  <make>database_module.database()</make>
-</block>

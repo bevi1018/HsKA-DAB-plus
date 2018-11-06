@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libgnuradio-database_module-1.0.0git.so.0.0.0 -o libgnuradio-database_module-1.0.0git.so.0.0.0 CMakeFiles/gnuradio-database_module.dir/database.cc.o CMakeFiles/gnuradio-database_module.dir/database_tester.cc.o CMakeFiles/gnuradio-database_module.dir/shared_database.cc.o -lboost_filesystem -lboost_system -lgnuradio-runtime 
